@@ -1,7 +1,6 @@
 package service.admin.model.user;
 
 import service.admin.model.DefaultEntity;
-
 import javax.persistence.*;
 import java.util.List;
 

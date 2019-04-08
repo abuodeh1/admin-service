@@ -4,7 +4,7 @@ import java.util.List;
 
 public class UserDTO extends DefaultDTO {
 
-    private String username;
+    private String code;
     private String email;
     private String name;
     private String password;
@@ -17,12 +17,9 @@ public class UserDTO extends DefaultDTO {
     private List<Integer> roles;
     private List<Integer> privileges;
 
-    public String getUsername() {
-        return username;
-    }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setCode(String code) {
+        this.code = code;
     }
 
     public String getEmail() {
@@ -83,6 +80,6 @@ public class UserDTO extends DefaultDTO {
 
     @Override
     public String getCode() {
-        return username;
+        return code;
     }
 }

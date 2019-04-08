@@ -28,7 +28,7 @@ public class CustomyRevisionListener implements RevisionListener {
         /*Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         if (authentication != null) {
             User user = (User) authentication.getPrincipal();
-            return () -> Optional.of(user.getUsername());
+            return () -> Optional.of(user.getCode());
         } else {
             return () -> Optional.of("");
         }*/
