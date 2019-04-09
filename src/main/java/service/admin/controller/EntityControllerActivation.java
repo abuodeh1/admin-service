@@ -17,29 +17,29 @@ public abstract class EntityControllerActivation<T extends DefaultEntity, D exte
     @Autowired
     EntityService<T> baseService;
 
-    @GetMapping(value = "/{username}/deactivate")
-    public ResponseEntity<D> deactivate(@PathVariable String username) {
+    @GetMapping(value = "/{code}/deactivate")
+    public ResponseEntity<D> deactivate(@PathVariable String code) {
 
         ResponseEntity<D> responseEntity = null;
 
-        Optional<T> sysUser = baseService.get(username);
+        Optional<T> sysEntity = baseService.get(code);
 
-        if (sysUser.isPresent()) {
+        if (sysEntity.isPresent()) {
 
-            T user = sysUser.get();
+            T entity = sysEntity.get();
 
-            user.setId(sysUser.get().getId());
+            entity.setId(sysEntity.get().getId());
 
 
-            user.setEnabled(false);
+            entity.setEnabled(false);
 
-            T updatedUser = baseService.save(user);
+            T updatedEntity = baseService.save(entity);
 
-            D userDTO = buildDTO();
+            D dto = buildDTO();
 
-            BeanUtils.copyProperties(updatedUser, userDTO,"password");
+            BeanUtils.copyProperties(updatedEntity, dto,"password");
 
-            responseEntity = new ResponseEntity(userDTO, HttpStatus.OK);
+            responseEntity = new ResponseEntity(dto, HttpStatus.OK);
 
         } else {
 
@@ -49,28 +49,28 @@ public abstract class EntityControllerActivation<T extends DefaultEntity, D exte
         return responseEntity;
     }
 
-    @GetMapping(value = "/{username}/activate")
-    public ResponseEntity<D> activate(@PathVariable String username) {
-
-        D userDTO = buildDTO();
+    @GetMapping(value = "/{code}/activate")
+    public ResponseEntity<D> activate(@PathVariable String code) {
 
         ResponseEntity<D> responseEntity = null;
 
-        Optional<T> sysUser = baseService.get(username);
+        Optional<T> sysEntity = baseService.get(code);
 
-        if (sysUser.isPresent()) {
+        if (sysEntity.isPresent()) {
 
-            T user = sysUser.get();
+            T entity = sysEntity.get();
 
-            user.setId(sysUser.get().getId());
+            entity.setId(sysEntity.get().getId());
 
-            user.setEnabled(true);
+            entity.setEnabled(true);
 
-            T updatedUser = baseService.save(user);
+            T updatedEntity = baseService.save(entity);
 
-            BeanUtils.copyProperties(updatedUser, userDTO);
+            D dto = buildDTO();
 
-            responseEntity = new ResponseEntity(userDTO, HttpStatus.OK);
+            BeanUtils.copyProperties(updatedEntity, dto);
+
+            responseEntity = new ResponseEntity(dto, HttpStatus.OK);
 
         } else {
 
