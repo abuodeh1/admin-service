@@ -9,8 +9,8 @@ public class UserPrivilegesIdentity implements Serializable {
 
     @Column(name = "userId")
     private int userId;
-    @Column(name = "privilegesId")
-    private int privilegesId;
+    @Column(name = "privilegeId")
+    private int privilegeId;
 
     public int getUserId() {
         return userId;
@@ -20,11 +20,11 @@ public class UserPrivilegesIdentity implements Serializable {
         this.userId = userId;
     }
 
-    public int getPrivilegesId() {
-        return privilegesId;
+    public int getPrivilegeId() {
+        return privilegeId;
     }
 
-    public void setPrivilegesId(int privilegesId) {
-        this.privilegesId = privilegesId;
+    public void setPrivilegeId(int privilegeId) {
+        this.privilegeId = privilegeId;
     }
 }

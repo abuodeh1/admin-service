@@ -2,6 +2,7 @@ package service.admin.model.role;
 
 
 import service.admin.model.DefaultEntity;
+import service.admin.model.user.UserRole;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -18,7 +19,11 @@ public class Role extends DefaultEntity {
 
     @OneToMany(fetch = FetchType.LAZY)
     @JoinColumn(name = "roleId")
-    private List<RolePrivilege> Privileges;
+    private List<RolePrivilege> privileges;
+
+    @OneToMany(fetch = FetchType.LAZY)
+    @JoinColumn(name = "roleId")
+    private List<UserRole> roles;
 
     public Role() {
     }
@@ -32,10 +37,18 @@ public class Role extends DefaultEntity {
     }
 
     public List<RolePrivilege> getPrivileges() {
-        return Privileges;
+        return privileges;
     }
 
     public void setPrivileges(List<RolePrivilege> privileges) {
-        Privileges = privileges;
+        this.privileges = privileges;
+    }
+
+    public List<UserRole> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(List<UserRole> roles) {
+        this.roles = roles;
     }
 }
