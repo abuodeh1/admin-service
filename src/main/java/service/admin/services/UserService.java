@@ -61,4 +61,9 @@ public class UserService implements EntityService<User> {
         return userRepository.findAll();
     }
 
+    public List<String> getPriviledgeCodes(String username) {
+
+
+        return userRepository.getPriviledgeCodes(username);
+    }
 }
