@@ -1,7 +1,5 @@
 package service.admin.dto;
 
-import java.util.List;
-
 public class UserDTO extends DefaultDTO {
 
     private String username;
@@ -14,7 +12,7 @@ public class UserDTO extends DefaultDTO {
     public UserDTO() {
     }
 
-    private List<String> privileges;
+//    private List<String> privileges;
 
     public String getUsername() {
         return code;
@@ -69,11 +67,11 @@ public class UserDTO extends DefaultDTO {
         return code;
     }
 
-    public List<String> getPrivileges() {
-        return privileges;
-    }
-
-    public void setPrivileges(List<String> privileges) {
-        this.privileges = privileges;
-    }
+//    public List<String> getPrivileges() {
+//        return privileges;
+//    }
+//
+//    public void setPrivileges(List<String> privileges) {
+//        this.privileges = privileges;
+//    }
 }

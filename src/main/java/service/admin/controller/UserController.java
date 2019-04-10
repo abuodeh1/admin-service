@@ -17,10 +17,10 @@ public class UserController extends EntityControllerCRUD<User, UserDTO>  {
     @Autowired
     private UserService userService;
 
-    @Override
-    public void modifyDTO(UserDTO dto) {
-        dto.setPrivileges(userService.getPriviledgeCodes(dto.getUsername()));
-    }
+//    @Override
+//    public void modifyDTO(UserDTO dto) {
+//        dto.setPrivileges(userService.getPriviledgeCodes(dto.getUsername()));
+//    }
 
     @Override
     public User buildEntity() {
