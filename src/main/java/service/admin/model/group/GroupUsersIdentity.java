@@ -5,7 +5,7 @@ import javax.persistence.Embeddable;
 import java.io.Serializable;
 
 @Embeddable
-public class GroupMembersIdentity  implements Serializable {
+public class GroupUsersIdentity implements Serializable {
 
     @Column(name = "groupId")
     private int groupId;

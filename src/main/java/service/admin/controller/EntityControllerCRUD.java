@@ -106,7 +106,7 @@ public abstract class EntityControllerCRUD<T extends DefaultEntity, D extends De
 
             BeanUtils.copyProperties(newEntity, dto, "password");
 
-            responseEntity = new ResponseEntity(updatedUser, HttpStatus.OK);
+            responseEntity = new ResponseEntity(dto, HttpStatus.OK);
 
         }else{
 

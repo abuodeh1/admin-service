@@ -23,7 +23,9 @@ public class Group extends DefaultEntity {
     @JoinColumn(name = "privilegeId")
     private List<GroupPrivileges> privileges;
 
-
+    @OneToMany(fetch = FetchType.LAZY)
+    @JoinColumn(name = "userId")
+    private List<GroupUsers> users;
 
     public Group() {
     }
@@ -71,5 +73,13 @@ public class Group extends DefaultEntity {
 
     public void setPrivileges(List<GroupPrivileges> privileges) {
         this.privileges = privileges;
+    }
+
+    public List<GroupUsers> getUsers() {
+        return users;
+    }
+
+    public void setUsers(List<GroupUsers> users) {
+        this.users = users;
     }
 }
