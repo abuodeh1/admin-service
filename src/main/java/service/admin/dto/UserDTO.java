@@ -1,7 +1,5 @@
 package service.admin.dto;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import java.util.List;
 
 public class UserDTO extends DefaultDTO {
@@ -16,14 +14,14 @@ public class UserDTO extends DefaultDTO {
     public UserDTO() {
     }
 
-    private List<Integer> roles;
-    private List<Integer> privileges;
+    private List<String> privileges;
 
     public String getUsername() {
         return code;
     }
+
     public void setUsername(String username) {
-        this.code = username;
+        this.username = code;
     }
 
     public String getEmail() {
@@ -66,25 +64,16 @@ public class UserDTO extends DefaultDTO {
         this.enabled = enabled;
     }
 
-    public List<Integer> getRoles() {
-        return roles;
-    }
-
-    public void setRoles(List<Integer> roles) {
-        this.roles = roles;
-    }
-
-    public List<Integer> getPrivileges() {
-        return privileges;
-    }
-
-    public void setPrivileges(List<Integer> privileges) {
-        this.privileges = privileges;
-    }
-
-    @JsonIgnore
     @Override
     public String getCode() {
         return code;
+    }
+
+    public List<String> getPrivileges() {
+        return privileges;
+    }
+
+    public void setPrivileges(List<String> privileges) {
+        this.privileges = privileges;
     }
 }

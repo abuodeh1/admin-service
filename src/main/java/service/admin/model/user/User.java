@@ -7,6 +7,9 @@ import java.util.List;
 
 //@Audited
 //@EntityListeners(AuditingEntityListener.class)
+//@NamedQueries({
+//        @NamedQuery(name = "User.getPriviledgeCodes", query = "select p from Privilege p")
+//})
 @Entity(name = "USERS")
 @AttributeOverride(name="code", column=@Column(name="username"))
 public class User extends DefaultEntity /*implements UserDetails*/ {

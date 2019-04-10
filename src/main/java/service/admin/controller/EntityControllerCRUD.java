@@ -35,6 +35,8 @@ public abstract class EntityControllerCRUD<T extends DefaultEntity, D extends De
 
         BeanUtils.copyProperties(dto, newEntity);
 
+        modifyDTO(dto);
+
         T addedUser = baseService.save(newEntity);
 
         BeanUtils.copyProperties(addedUser, dto, "password");
@@ -54,6 +56,8 @@ public abstract class EntityControllerCRUD<T extends DefaultEntity, D extends De
             D dto = buildDTO();
 
             BeanUtils.copyProperties(entity.get(), dto, "password");
+
+            modifyDTO(dto);
 
             responseEntity = new ResponseEntity(dto, HttpStatus.OK);
 
@@ -152,4 +156,6 @@ public abstract class EntityControllerCRUD<T extends DefaultEntity, D extends De
 
     public abstract T buildEntity();
     public abstract D buildDTO();
+
+    public void modifyDTO(D dto){}
 }

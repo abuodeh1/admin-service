@@ -15,7 +15,12 @@ import service.admin.services.UserService;
 public class UserController extends EntityControllerCRUD<User, UserDTO>  {
 
     @Autowired
-    UserService userService;
+    private UserService userService;
+
+    @Override
+    public void modifyDTO(UserDTO dto) {
+        dto.setPrivileges(userService.getPriviledgeCodes(dto.getUsername()));
+    }
 
     @Override
     public User buildEntity() {
