@@ -9,10 +9,13 @@ public class GroupDTO extends DefaultDTO {
     private String description;
     private boolean enabled;
 
+
     private List<Integer> roles;
-
-
     private List<Integer> privileges;
+    private List<Integer> users;
+
+    public GroupDTO() {
+    }
 
     @Override
     public String getCode() {
@@ -61,5 +64,13 @@ public class GroupDTO extends DefaultDTO {
 
     public void setPrivileges(List<Integer> privileges) {
         this.privileges = privileges;
+    }
+
+    public List<Integer> getUsers() {
+        return users;
+    }
+
+    public void setUsers(List<Integer> users) {
+        this.users = users;
     }
 }
