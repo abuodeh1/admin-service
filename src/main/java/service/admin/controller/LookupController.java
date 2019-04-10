@@ -1,13 +1,17 @@
 package service.admin.controller;
 
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import service.admin.controller.find.QuerySpecification;
+import service.admin.controller.find.SearchCriteria;
 import service.admin.dto.LookupDTO;
 import service.admin.model.lookup.Lookup;
 import service.admin.services.LookupService;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @CrossOrigin(origins = "*", maxAge = 3600)
@@ -46,6 +50,43 @@ public class LookupController extends EntityControllerCRUD<Lookup, LookupDTO> {
 //    public void attachChildLookup(@PathVariable String parentID,@PathVariable String lookupID) {
 //       lookupService.attachChildLookup(parentID,lookupID);
 //    }
+
+    @PostMapping( value = "/findParent")
+    public ResponseEntity<List<Lookup>> findParent(@RequestBody List<SearchCriteria> criteriaList) {
+    //to do
+        QuerySpecification<Lookup> querySpecification = new QuerySpecification(criteriaList);
+
+        List<Lookup> entitie = baseService.find(querySpecification);
+
+        List<LookupDTO> dtos = new ArrayList<>();
+
+        entitie.stream().forEach( entity -> {
+            LookupDTO dto = buildDTO();
+            BeanUtils.copyProperties(entity, dto);
+            dtos.add(dto);
+        });
+
+        return new ResponseEntity(dtos, HttpStatus.OK);
+    }
+
+    @PostMapping( value = "/findChild")
+    public ResponseEntity<List<Lookup>> findChild(@RequestBody List<SearchCriteria> criteriaList) {
+    //to do
+        QuerySpecification<Lookup> querySpecification = new QuerySpecification(criteriaList);
+
+        List<Lookup> entities = baseService.find(querySpecification);
+
+        List<LookupDTO> dtos = new ArrayList<>();
+
+        entities.stream().forEach( entity -> {
+            LookupDTO dto = buildDTO();
+            BeanUtils.copyProperties(entity, dto);
+            dtos.add(dto);
+        });
+
+        return new ResponseEntity(dtos, HttpStatus.OK);
+    }
+
 
     @Override
     public Lookup buildEntity() {
