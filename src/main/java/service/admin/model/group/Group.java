@@ -1,31 +1,19 @@
 package service.admin.model.group;
 
+import org.hibernate.envers.Audited;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import service.admin.model.DefaultEntity;
 
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
-import java.util.List;
+import javax.persistence.EntityListeners;
 
-//@Audited
-//@EntityListeners(AuditingEntityListener.class)
+@Audited
+@EntityListeners(AuditingEntityListener.class)
 @Entity(name="GROUPS")
 public class Group extends DefaultEntity {
 
     private String description;
 
-    @OneToMany(fetch = FetchType.LAZY)
-    @JoinColumn(name = "groupId")
-    private List<GroupRole> roles;
-
-    @OneToMany(fetch = FetchType.LAZY)
-    @JoinColumn(name = "privilegeId")
-    private List<GroupPrivileges> privileges;
-
-//    @OneToMany(fetch = FetchType.LAZY)
-//    @JoinColumn(name = "groupId")
-//    private List<GroupUsers> users;
 
 
     public Group() {
@@ -60,27 +48,5 @@ public class Group extends DefaultEntity {
         this.description = description;
     }
 
-    public List<GroupRole> getRoles() {
-        return roles;
-    }
 
-    public void setRoles(List<GroupRole> roles) {
-        this.roles = roles;
-    }
-
-    public List<GroupPrivileges> getPrivileges() {
-        return privileges;
-    }
-
-    public void setPrivileges(List<GroupPrivileges> privileges) {
-        this.privileges = privileges;
-    }
-
-//    public List<GroupUsers> getUsers() {
-//        return users;
-//    }
-//
-//    public void setUsers(List<GroupUsers> users) {
-//        this.users = users;
-//    }
 }

@@ -96,7 +96,7 @@ public class LookupController extends EntityControllerCRUD<Lookup, LookupDTO> {
         return new ResponseEntity(dtos, HttpStatus.OK);
     }
 
-    @PostMapping( value = "/allchild")
+    @GetMapping( value = "/allchild")
     public ResponseEntity<List<Lookup>> gelAllChild() {
         List<Lookup> entitie = lookupService.getAllChildLookup();
 

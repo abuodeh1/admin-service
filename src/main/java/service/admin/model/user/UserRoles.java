@@ -1,8 +1,9 @@
-package service.admin.model.group;
+package service.admin.model.user;
+
 
 import org.hibernate.envers.Audited;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
-import service.admin.model.user.User;
+import service.admin.model.role.Role;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -10,33 +11,25 @@ import java.util.List;
 
 @Audited
 @EntityListeners(AuditingEntityListener.class)
-@Entity(name="GROUPUSERS")
-public class GroupUsers {
+@Entity(name="USERROLES")
+public class UserRoles {
 
     @EmbeddedId
-    private GroupUsersIdentity groupUsersIdentity;
-
-    @ManyToOne(fetch = FetchType.LAZY, targetEntity = Group.class)
-    @JoinColumn(name = "groupId", insertable = false, updatable = false)
-    private List<Group> groups;
+    private UserRoleIdentity userRoleIdentity;
 
     @ManyToOne(fetch = FetchType.LAZY, targetEntity = User.class)
     @JoinColumn(name = "userId", insertable = false, updatable = false)
     private List<User> users;
 
+    @ManyToOne(fetch = FetchType.LAZY, targetEntity = Role.class)
+    @JoinColumn(name = "roleId", insertable = false, updatable = false)
+    private List<Role> roles;
 
     private long lastModified;
 
-    public GroupUsers() {
+
+    public UserRoles() {
         setLastModified(new Date().getTime());
-    }
-
-    public GroupUsersIdentity getGroupUsersIdentity() {
-        return groupUsersIdentity;
-    }
-
-    public void setGroupUsersIdentity(GroupUsersIdentity groupUsersIdentity) {
-        this.groupUsersIdentity = groupUsersIdentity;
     }
 
     public long getLastModified() {
@@ -47,12 +40,12 @@ public class GroupUsers {
         this.lastModified = lastModified;
     }
 
-    public List<Group> getGroups() {
-        return groups;
+    public UserRoleIdentity getUserRoleIdentity() {
+        return userRoleIdentity;
     }
 
-    public void setGroups(List<Group> groups) {
-        this.groups = groups;
+    public void setUserRoleIdentity(UserRoleIdentity userRoleIdentity) {
+        this.userRoleIdentity = userRoleIdentity;
     }
 
     public List<User> getUsers() {
@@ -61,5 +54,13 @@ public class GroupUsers {
 
     public void setUsers(List<User> users) {
         this.users = users;
+    }
+
+    public List<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(List<Role> roles) {
+        this.roles = roles;
     }
 }

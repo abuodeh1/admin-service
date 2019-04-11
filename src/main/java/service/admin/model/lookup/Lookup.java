@@ -1,21 +1,17 @@
 package service.admin.model.lookup;
 
-
 import org.hibernate.envers.Audited;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import service.admin.model.DefaultEntity;
-
 import javax.persistence.*;
 import java.util.List;
 
 @NamedQueries({
-
         @NamedQuery(name = "Lookup.getAllParentsLookup", query = "select c from Lookup c where c.parent='0'"),
         @NamedQuery(name = "Lookup.getParentLookup", query = "select c from Lookup c where c.code=?1 and c.parent='0'"),
         @NamedQuery(name = "Lookup.getLookupChilds", query = "select c  from Lookup c where c.parent=?1"),
         @NamedQuery(name = "Lookup.getChildLookup", query = "select c.name  from Lookup c where c.code=?1 and c.parent=?2 "),
-        @NamedQuery(name = "Lookup.getAllChildLookup", query = "select c.name  from Lookup c where   c.parent!='0' ")
-
+        @NamedQuery(name = "Lookup.getAllChildLookup", query = "select c  from Lookup c where   c.parent!='0' ")
 })
 @Audited
 @EntityListeners(value = AuditingEntityListener.class)
