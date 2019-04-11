@@ -8,14 +8,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import service.admin.dto.DefaultDTO;
 import service.admin.model.DefaultEntity;
-import service.admin.services.EntityService;
+import service.admin.services.AbstractEntityService;
 
 import java.util.Optional;
 
 public abstract class EntityControllerActivation<T extends DefaultEntity, D extends DefaultDTO> {
 
     @Autowired
-    EntityService<T> baseService;
+    AbstractEntityService<T> baseService;
 
     @GetMapping(value = "/{code}/deactivate")
     public ResponseEntity<D> deactivate(@PathVariable String code) {

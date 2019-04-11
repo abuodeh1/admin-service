@@ -53,7 +53,7 @@ public class LookupController extends EntityControllerCRUD<Lookup, LookupDTO> {
 
     @PostMapping( value = "/findParent")
     public ResponseEntity<List<Lookup>> findParent(@RequestBody List<SearchCriteria> criteriaList) {
-
+    //to do
         QuerySpecification<Lookup> querySpecification = new QuerySpecification(criteriaList);
         List<Lookup> parentLookup = new ArrayList<>();
         List<Lookup> entitie = baseService.find(querySpecification);
@@ -76,6 +76,7 @@ public class LookupController extends EntityControllerCRUD<Lookup, LookupDTO> {
 
     @PostMapping( value = "/findChild")
     public ResponseEntity<List<Lookup>> findChild(@RequestBody List<SearchCriteria> criteriaList) {
+    //to do
         QuerySpecification<Lookup> querySpecification = new QuerySpecification(criteriaList);
         List<Lookup> childLookup = new ArrayList<>();
         List<Lookup> entitie = baseService.find(querySpecification);
@@ -110,7 +111,6 @@ public class LookupController extends EntityControllerCRUD<Lookup, LookupDTO> {
 
         return new ResponseEntity(dtos, HttpStatus.OK);
     }
-
 
 
     @Override

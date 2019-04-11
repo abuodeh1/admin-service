@@ -9,7 +9,7 @@ import service.admin.controller.find.QuerySpecification;
 import service.admin.controller.find.SearchCriteria;
 import service.admin.dto.DefaultDTO;
 import service.admin.model.DefaultEntity;
-import service.admin.services.EntityService;
+import service.admin.services.AbstractEntityService;
 import service.exception.ConflictException;
 
 import java.util.ArrayList;
@@ -19,7 +19,7 @@ import java.util.Optional;
 public abstract class EntityControllerCRUD<T extends DefaultEntity, D extends DefaultDTO> extends EntityControllerActivation<T, D > {
 
     @Autowired
-    EntityService<T> baseService;
+    AbstractEntityService<T> baseService;
 
     @PostMapping(value = {"", "/"})
     public ResponseEntity<T> add(@RequestBody D dto) {
@@ -98,7 +98,7 @@ public abstract class EntityControllerCRUD<T extends DefaultEntity, D extends De
 
         Optional<T> entity = baseService.get(dto.getCode());
 
-        if(entity.isPresent()){
+        if(entity.isPresent()) {
 
             T newEntity = buildEntity();
 
@@ -108,14 +108,14 @@ public abstract class EntityControllerCRUD<T extends DefaultEntity, D extends De
 
             T updatedUser = baseService.save(newEntity);
 
-            BeanUtils.copyProperties(newEntity, dto, "password");
+            BeanUtils.copyProperties(updatedUser, dto, "password");
 
             responseEntity = new ResponseEntity(dto, HttpStatus.OK);
-
-        }else{
-
-            responseEntity = new ResponseEntity(HttpStatus.NOT_MODIFIED);
         }
+//        }else{
+//
+//            responseEntity = new ResponseEntity(HttpStatus.NOT_MODIFIED);
+//        }
 
         return responseEntity;
 

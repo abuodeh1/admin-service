@@ -1,8 +1,10 @@
 package service.admin.model.lookup;
 
+
 import org.hibernate.envers.Audited;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import service.admin.model.DefaultEntity;
+
 import javax.persistence.*;
 import java.util.List;
 

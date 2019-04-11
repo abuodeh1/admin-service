@@ -8,6 +8,7 @@ import javax.persistence.AttributeOverride;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EntityListeners;
+import javax.validation.constraints.NotNull;
 
 @Audited
 @EntityListeners(AuditingEntityListener.class)
@@ -16,6 +17,7 @@ import javax.persistence.EntityListeners;
 public class User extends DefaultEntity /*implements UserDetails*/ {
 
     private String email;
+    @NotNull
     private String password;
     private String mobile;
 
