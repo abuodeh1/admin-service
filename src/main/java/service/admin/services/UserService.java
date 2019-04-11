@@ -22,6 +22,7 @@ public class UserService extends AbstractEntityService<User> implements EntitySe
 
     @Autowired
     private UserPrivilegesRepository userPrivilegesRepository;
+
     @Autowired
     private UserRoleRepository userRoleRepository;
 

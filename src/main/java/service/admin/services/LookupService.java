@@ -23,11 +23,6 @@ public class LookupService extends AbstractEntityService<Lookup> {
         return lookupRepository.getLookupChilds(parent);
     }
 
-    public List<Lookup> getAllChildesLookup(String parent) {
-
-        return lookupRepository.getAllChildesLookup(parent);
-    }
-
     public List<Lookup> getAllParentLookup() {
 
         return  lookupRepository.getAllParentsLookup();

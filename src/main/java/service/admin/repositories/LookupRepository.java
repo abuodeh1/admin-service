@@ -11,14 +11,13 @@ import java.util.List;
 public interface LookupRepository extends NaturalRepository<Lookup, String>, JpaSpecificationExecutor<Lookup> {
 
     @Query
-    public  List<Lookup> getAllParentsLookup();
+    List<Lookup> getAllParentsLookup();
 
     @Query
-    List<Lookup> getAllChildesLookup(String id);
-    public List<Lookup> getLookupChilds(String id);
+    List<Lookup> getLookupChilds(String id);
 
     @Query
-    public  Lookup getChildLookup(String id, String parent);
+    Lookup getChildLookup(String id, String parent);
 
     @Query
     Lookup getParentLookup(String code);

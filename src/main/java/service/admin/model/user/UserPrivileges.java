@@ -38,7 +38,7 @@ public class UserPrivileges {
         return userPrivilegesIdentity;
     }
 
-    public void setUserPrivilegesIdentity(UserPrivilegesIdentity userPrivilegesIdentity) {
+    public void setUserPrivilegesIdentity(UserPrivilegesIdentity userPri0000vilegesIdentity) {
         this.userPrivilegesIdentity = userPrivilegesIdentity;
     }
 

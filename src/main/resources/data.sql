@@ -44,43 +44,50 @@ INSERT INTO public.privileges(id, code, enabled, name, description) VALUES (36,'
 
 
 -- Relation Role / Privileges
-INSERT INTO public.roleprivilege(privilege_id, role_id, last_modified) VALUES (1, 1, 1554806423578);
-INSERT INTO public.roleprivilege(privilege_id, role_id, last_modified) VALUES (2, 1, 1554806423578);
-INSERT INTO public.roleprivilege(privilege_id, role_id, last_modified) VALUES (3, 1, 1554806423578);
-INSERT INTO public.roleprivilege(privilege_id, role_id, last_modified) VALUES (4, 1, 1554806423578);
-INSERT INTO public.roleprivilege(privilege_id, role_id, last_modified) VALUES (5, 1, 1554806423578);
-INSERT INTO public.roleprivilege(privilege_id, role_id, last_modified) VALUES (6, 1, 1554806423578);
-INSERT INTO public.roleprivilege(privilege_id, role_id, last_modified) VALUES (7, 1, 1554806423578);
-INSERT INTO public.roleprivilege(privilege_id, role_id, last_modified) VALUES (8, 1, 1554806423578);
-INSERT INTO public.roleprivilege(privilege_id, role_id, last_modified) VALUES (9, 1, 1554806423578);
-INSERT INTO public.roleprivilege(privilege_id, role_id, last_modified) VALUES (10, 1, 1554806423578);
-INSERT INTO public.roleprivilege(privilege_id, role_id, last_modified) VALUES (11, 1, 1554806423578);
-INSERT INTO public.roleprivilege(privilege_id, role_id, last_modified) VALUES (12, 1, 1554806423578);
-INSERT INTO public.roleprivilege(privilege_id, role_id, last_modified) VALUES (13, 1, 1554806423578);
-INSERT INTO public.roleprivilege(privilege_id, role_id, last_modified) VALUES (14, 1, 1554806423578);
-INSERT INTO public.roleprivilege(privilege_id, role_id, last_modified) VALUES (15, 1, 1554806423578);
-INSERT INTO public.roleprivilege(privilege_id, role_id, last_modified) VALUES (16, 1, 1554806423578);
-INSERT INTO public.roleprivilege(privilege_id, role_id, last_modified) VALUES (17, 1, 1554806423578);
-INSERT INTO public.roleprivilege(privilege_id, role_id, last_modified) VALUES (18, 1, 1554806423578);
-INSERT INTO public.roleprivilege(privilege_id, role_id, last_modified) VALUES (19, 1, 1554806423578);
-INSERT INTO public.roleprivilege(privilege_id, role_id, last_modified) VALUES (20, 1, 1554806423578);
-INSERT INTO public.roleprivilege(privilege_id, role_id, last_modified) VALUES (21, 1, 1554806423578);
-INSERT INTO public.roleprivilege(privilege_id, role_id, last_modified) VALUES (22, 1, 1554806423578);
-INSERT INTO public.roleprivilege(privilege_id, role_id, last_modified) VALUES (23, 1, 1554806423578);
-INSERT INTO public.roleprivilege(privilege_id, role_id, last_modified) VALUES (24, 1, 1554806423578);
-INSERT INTO public.roleprivilege(privilege_id, role_id, last_modified) VALUES (25, 1, 1554806423578);
-INSERT INTO public.roleprivilege(privilege_id, role_id, last_modified) VALUES (26, 1, 1554806423578);
-INSERT INTO public.roleprivilege(privilege_id, role_id, last_modified) VALUES (27, 1, 1554806423578);
-INSERT INTO public.roleprivilege(privilege_id, role_id, last_modified) VALUES (28, 1, 1554806423578);
-INSERT INTO public.roleprivilege(privilege_id, role_id, last_modified) VALUES (29, 1, 1554806423578);
-INSERT INTO public.roleprivilege(privilege_id, role_id, last_modified) VALUES (30, 1, 1554806423578);
-INSERT INTO public.roleprivilege(privilege_id, role_id, last_modified) VALUES (31, 1, 1554806423578);
-INSERT INTO public.roleprivilege(privilege_id, role_id, last_modified) VALUES (32, 1, 1554806423578);
-INSERT INTO public.roleprivilege(privilege_id, role_id, last_modified) VALUES (33, 1, 1554806423578);
-INSERT INTO public.roleprivilege(privilege_id, role_id, last_modified) VALUES (34, 1, 1554806423578);
-INSERT INTO public.roleprivilege(privilege_id, role_id, last_modified) VALUES (35, 1, 1554806423578);
-INSERT INTO public.roleprivilege(privilege_id, role_id, last_modified) VALUES (36, 1, 1554806423578);
+INSERT INTO public.role_privileges(privilege_id, role_id, last_modified) VALUES (1, 1, 1554806423578);
+INSERT INTO public.role_privileges(privilege_id, role_id, last_modified) VALUES (2, 1, 1554806423578);
+INSERT INTO public.role_privileges(privilege_id, role_id, last_modified) VALUES (3, 1, 1554806423578);
+INSERT INTO public.role_privileges(privilege_id, role_id, last_modified) VALUES (4, 1, 1554806423578);
+INSERT INTO public.role_privileges(privilege_id, role_id, last_modified) VALUES (5, 1, 1554806423578);
+INSERT INTO public.role_privileges(privilege_id, role_id, last_modified) VALUES (6, 1, 1554806423578);
+INSERT INTO public.role_privileges(privilege_id, role_id, last_modified) VALUES (7, 1, 1554806423578);
+INSERT INTO public.role_privileges(privilege_id, role_id, last_modified) VALUES (8, 1, 1554806423578);
+INSERT INTO public.role_privileges(privilege_id, role_id, last_modified) VALUES (9, 1, 1554806423578);
+INSERT INTO public.role_privileges(privilege_id, role_id, last_modified) VALUES (10, 1, 1554806423578);
+INSERT INTO public.role_privileges(privilege_id, role_id, last_modified) VALUES (11, 1, 1554806423578);
+INSERT INTO public.role_privileges(privilege_id, role_id, last_modified) VALUES (12, 1, 1554806423578);
+INSERT INTO public.role_privileges(privilege_id, role_id, last_modified) VALUES (13, 1, 1554806423578);
+INSERT INTO public.role_privileges(privilege_id, role_id, last_modified) VALUES (14, 1, 1554806423578);
+INSERT INTO public.role_privileges(privilege_id, role_id, last_modified) VALUES (15, 1, 1554806423578);
+INSERT INTO public.role_privileges(privilege_id, role_id, last_modified) VALUES (16, 1, 1554806423578);
+INSERT INTO public.role_privileges(privilege_id, role_id, last_modified) VALUES (17, 1, 1554806423578);
+INSERT INTO public.role_privileges(privilege_id, role_id, last_modified) VALUES (18, 1, 1554806423578);
+INSERT INTO public.role_privileges(privilege_id, role_id, last_modified) VALUES (19, 1, 1554806423578);
+INSERT INTO public.role_privileges(privilege_id, role_id, last_modified) VALUES (20, 1, 1554806423578);
+INSERT INTO public.role_privileges(privilege_id, role_id, last_modified) VALUES (21, 1, 1554806423578);
+INSERT INTO public.role_privileges(privilege_id, role_id, last_modified) VALUES (22, 1, 1554806423578);
+INSERT INTO public.role_privileges(privilege_id, role_id, last_modified) VALUES (23, 1, 1554806423578);
+INSERT INTO public.role_privileges(privilege_id, role_id, last_modified) VALUES (24, 1, 1554806423578);
+INSERT INTO public.role_privileges(privilege_id, role_id, last_modified) VALUES (25, 1, 1554806423578);
+INSERT INTO public.role_privileges(privilege_id, role_id, last_modified) VALUES (26, 1, 1554806423578);
+INSERT INTO public.role_privileges(privilege_id, role_id, last_modified) VALUES (27, 1, 1554806423578);
+INSERT INTO public.role_privileges(privilege_id, role_id, last_modified) VALUES (28, 1, 1554806423578);
+INSERT INTO public.role_privileges(privilege_id, role_id, last_modified) VALUES (29, 1, 1554806423578);
+INSERT INTO public.role_privileges(privilege_id, role_id, last_modified) VALUES (30, 1, 1554806423578);
+INSERT INTO public.role_privileges(privilege_id, role_id, last_modified) VALUES (31, 1, 1554806423578);
+INSERT INTO public.role_privileges(privilege_id, role_id, last_modified) VALUES (32, 1, 1554806423578);
+INSERT INTO public.role_privileges(privilege_id, role_id, last_modified) VALUES (33, 1, 1554806423578);
+INSERT INTO public.role_privileges(privilege_id, role_id, last_modified) VALUES (34, 1, 1554806423578);
+INSERT INTO public.role_privileges(privilege_id, role_id, last_modified) VALUES (35, 1, 1554806423578);
+INSERT INTO public.role_privileges(privilege_id, role_id, last_modified) VALUES (36, 1, 1554806423578);
 
 -- Relation User / Role
-INSERT INTO public.userroles(role_id, user_id, last_modified) VALUES (1,1,1554803365114);
+INSERT INTO public.user_roles(role_id, user_id, last_modified) VALUES (1,1,1554803365114);
+-- Lookup
+INSERT INTO public.lookup (id, code, enabled, name, description, parent, preferred) VALUES ('C001', true, 'محافظات', 'محافظات', '0', false);
+INSERT INTO public.lookup (id, code, enabled, name, description, parent, preferred) VALUES ('C002', true, 'مدن', 'مدن', '0', false);
+INSERT INTO public.lookup (id, code, enabled, name, description, parent, preferred) VALUES ('C003', true, 'مديريات', 'مديريات', '0', false);
+INSERT INTO public.lookup (id, code, enabled, name, description, parent, preferred) VALUES (4, 'C101', true, 'عمان', 'عمان', 'C001', true);
+INSERT INTO public.lookup (id, code, enabled, name, description, parent, preferred) VALUES (5, 'C102', true, 'الكرك', 'الكرك', 'C001', false);
+INSERT INTO public.lookup (id, code, enabled, name, description, parent, preferred) VALUES (6, 'C103', true, 'العقبة', 'العقبة', 'C001', false);
 
