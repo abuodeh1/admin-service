@@ -12,8 +12,6 @@ public class UserDTO extends DefaultDTO {
     public UserDTO() {
     }
 
-//    private List<String> privileges;
-
     public String getUsername() {
         return code;
     }
@@ -67,11 +65,4 @@ public class UserDTO extends DefaultDTO {
         return code;
     }
 
-//    public List<String> getPrivileges() {
-//        return privileges;
-//    }
-//
-//    public void setPrivileges(List<String> privileges) {
-//        this.privileges = privileges;
-//    }
 }
