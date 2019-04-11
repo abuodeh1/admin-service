@@ -11,10 +11,7 @@ import javax.persistence.EntityListeners;
 
 @Audited
 @EntityListeners(AuditingEntityListener.class)
-//@NamedQueries({
-//        @NamedQuery(name = "User.getPriviledgeCodes", query = "select p from Privilege p")
-//})
-@Entity(name = "USERS")
+@Entity(name = "Users")
 @AttributeOverride(name="code", column=@Column(name="username"))
 public class User extends DefaultEntity /*implements UserDetails*/ {
 

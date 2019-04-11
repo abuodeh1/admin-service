@@ -11,7 +11,7 @@ import java.util.List;
 
 @Audited
 @EntityListeners(AuditingEntityListener.class)
-@Entity(name="USERROLES")
+@Entity(name="UserRoles")
 public class UserRoles {
 
     @EmbeddedId

@@ -14,7 +14,7 @@ import service.admin.services.PrivilegeService;
 public class PrivilegeController extends EntityControllerCRUD<Privilege, PrivilegeDTO> {
 
     @Autowired
-    private PrivilegeService roleService;
+    private PrivilegeService privilegeService;
 
     @Override
     public Privilege buildEntity() {

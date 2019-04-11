@@ -52,4 +52,5 @@ public class PrivilegeService implements EntityService<Privilege> {
 
         return privilegeRepository.findAll();
     }
+
 }

@@ -10,8 +10,8 @@ import java.util.List;
 
 @Audited
 @EntityListeners(AuditingEntityListener.class)
-@Entity(name="ROLEPRIVILEGES")
-public class RolePrivilege {
+@Entity(name="RolePrivileges")
+public class RolePrivileges {
 
     @EmbeddedId
     private RolePrivilegeIdentity rolePrivilegesIdentity;
@@ -26,7 +26,7 @@ public class RolePrivilege {
 
     private long lastModified;
 
-    public RolePrivilege() {
+    public RolePrivileges() {
         setLastModified(new Date().getTime());
     }
 

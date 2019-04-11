@@ -8,9 +8,12 @@ import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
 
+@NamedQueries({
+        @NamedQuery(name = "UserPrivileges.getUserPrivilegesByUserCode", query = "select c.privileges from UserPrivileges c where c.userPrivilegesIdentity.userId = (select u.id from Users u where u.code = ?1)")
+})
 @Audited
 @EntityListeners(AuditingEntityListener.class)
-@Entity(name="USERPRIVILEGE")
+@Entity(name="UserPrivileges")
 public class UserPrivileges {
 
     @EmbeddedId

@@ -9,7 +9,7 @@ import javax.persistence.EntityListeners;
 
 @Audited
 @EntityListeners(AuditingEntityListener.class)
-@Entity(name="GROUPS")
+@Entity(name="Groups")
 public class Group extends DefaultEntity {
 
     private String description;

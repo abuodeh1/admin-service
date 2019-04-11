@@ -11,7 +11,7 @@ import java.util.List;
 
 @Audited
 @EntityListeners(AuditingEntityListener.class)
-@Entity(name="GROUPROLE")
+@Entity(name="GroupRoles")
 public class GroupRoles {
 
     @EmbeddedId
