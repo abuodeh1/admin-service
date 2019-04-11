@@ -6,9 +6,12 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import service.admin.controller.find.QuerySpecification;
+import service.admin.model.privilege.Privilege;
+import service.admin.model.role.Role;
 import service.admin.model.user.User;
-import service.admin.repositories.GroupUsersRepository;
+import service.admin.repositories.UserPrivilegesRepository;
 import service.admin.repositories.UserRepository;
+import service.admin.repositories.UserRoleRepository;
 
 import java.util.List;
 import java.util.Optional;
@@ -20,7 +23,9 @@ public class UserService implements EntityService<User> {
     private UserRepository userRepository;
 
     @Autowired
-    private GroupUsersRepository groupUsersRepository;
+    private UserPrivilegesRepository userPrivilegesRepository;
+    @Autowired
+    private UserRoleRepository userRoleRepository;
 
     @Bean
     public PasswordEncoder passwordEncoder() {
@@ -71,4 +76,13 @@ public class UserService implements EntityService<User> {
         return userRepository.getPriviledgeCodes(username);
     }
 
+    public List<Privilege> getUserPrivilegesByUserCode(String code){
+
+        return userPrivilegesRepository.getUserPrivilegesByUserCode(code);
+    }
+
+    public List<Role> getUserRolesByUserCode(String code){
+
+        return userRoleRepository.getUserRolesByUserCode(code);
+    }
 }

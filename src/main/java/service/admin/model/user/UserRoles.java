@@ -11,7 +11,12 @@ import java.util.List;
 
 @Audited
 @EntityListeners(AuditingEntityListener.class)
-@Entity(name="USERROLES")
+
+@NamedQueries({
+        @NamedQuery(name = "UserRoles.getUserRolesByUserCode", query = "select c.roles from UserRoles c where c.userRoleIdentity.userId = (select u.id from Users u where u.code = ?1)")
+})
+
+@Entity(name="UserRoles")
 public class UserRoles {
 
     @EmbeddedId

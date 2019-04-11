@@ -10,14 +10,14 @@ import javax.persistence.EntityListeners;
 
 @Audited
 @EntityListeners(AuditingEntityListener.class)
-@Entity(name="ROLES")
+@Entity(name="Roles")
 public class Role extends DefaultEntity {
 
     private String description;
 
 //    @OneToMany(fetch = FetchType.LAZY)
 //    @JoinColumn(name = "roleId")
-//    private List<RolePrivilege> privileges;
+//    private List<RolePrivileges> privileges;
 
 //    @JoinTable(name = "userroles")
 //    @OneToMany(fetch = FetchType.LAZY)
@@ -35,11 +35,11 @@ public class Role extends DefaultEntity {
         this.description = description;
     }
 
-//    public List<RolePrivilege> getPrivileges() {
+//    public List<RolePrivileges> getPrivileges() {
 //        return privileges;
 //    }
 //
-//    public void setPrivileges(List<RolePrivilege> privileges) {
+//    public void setPrivileges(List<RolePrivileges> privileges) {
 //        this.privileges = privileges;
 //    }
 

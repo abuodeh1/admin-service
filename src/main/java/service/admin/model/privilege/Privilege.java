@@ -9,7 +9,7 @@ import javax.persistence.EntityListeners;
 
 @Audited
 @EntityListeners(AuditingEntityListener.class)
-@Entity(name="PRIVILEGES")
+@Entity(name="Privileges")
 public class Privilege extends DefaultEntity {
 
     private String description;
@@ -20,7 +20,7 @@ public class Privilege extends DefaultEntity {
 
 //    @OneToMany(fetch = FetchType.LAZY)
 //    @JoinColumn(name = "roleId")
-//    private List<RolePrivilege> roles;
+//    private List<RolePrivileges> roles;
 
     public Privilege() {
 
@@ -42,11 +42,11 @@ public class Privilege extends DefaultEntity {
 //        this.users = users;
 //    }
 
-//    public List<RolePrivilege> getRoles() {
+//    public List<RolePrivileges> getRoles() {
 //        return roles;
 //    }
 //
-//    public void setRoles(List<RolePrivilege> roles) {
+//    public void setRoles(List<RolePrivileges> roles) {
 //        this.roles = roles;
 //    }
 }
