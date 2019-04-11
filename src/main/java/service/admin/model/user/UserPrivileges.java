@@ -10,7 +10,7 @@ import java.util.List;
 
 @Audited
 @EntityListeners(AuditingEntityListener.class)
-@Entity(name="USERPRIVILEGES")
+@Entity(name="USERPRIVILEGE")
 public class UserPrivileges {
 
     @EmbeddedId

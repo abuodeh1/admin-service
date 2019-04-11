@@ -16,7 +16,7 @@ public class Group extends DefaultEntity {
 
 //    @OneToMany(fetch = FetchType.LAZY)
 //    @JoinColumn(name = "groupId")
-//    private List<GroupRole> roles;
+//    private List<GroupRoles> roles;
 //
 //    @OneToMany(fetch = FetchType.LAZY)
 //    @JoinColumn(name = "privilegeId")
@@ -58,11 +58,11 @@ public class Group extends DefaultEntity {
         this.description = description;
     }
 
-//    public List<GroupRole> getRoles() {
+//    public List<GroupRoles> getRoles() {
 //        return roles;
 //    }
 //
-//    public void setRoles(List<GroupRole> roles) {
+//    public void setRoles(List<GroupRoles> roles) {
 //        this.roles = roles;
 //    }
 //

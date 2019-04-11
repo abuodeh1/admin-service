@@ -25,7 +25,7 @@ public class User extends DefaultEntity /*implements UserDetails*/ {
 //    @JoinTable(name = "userroles")
 //    @OneToMany(fetch = FetchType.LAZY)
 //    @JoinColumn(name = "userId")
-//    private List<UserRole> roles;
+//    private List<UserRoles> roles;
 
 //    @OneToMany(fetch = FetchType.LAZY)
 //    @JoinColumn(name = "userId")
@@ -91,11 +91,11 @@ public class User extends DefaultEntity /*implements UserDetails*/ {
         this.enabled = enabled;
     }
 
-//    public List<UserRole> getRoles() {
+//    public List<UserRoles> getRoles() {
 //        return roles;
 //    }
 //
-//    public void setRoles(List<UserRole> roles) {
+//    public void setRoles(List<UserRoles> roles) {
 //        this.roles = roles;
 //    }
 

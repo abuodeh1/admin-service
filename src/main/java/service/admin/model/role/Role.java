@@ -22,7 +22,7 @@ public class Role extends DefaultEntity {
 //    @JoinTable(name = "userroles")
 //    @OneToMany(fetch = FetchType.LAZY)
 //    @JoinColumn(name = "roleId")
-//    private List<UserRole> roles;
+//    private List<UserRoles> roles;
 
     public Role() {
     }
@@ -43,11 +43,11 @@ public class Role extends DefaultEntity {
 //        this.privileges = privileges;
 //    }
 
-//    public List<UserRole> getRoles() {
+//    public List<UserRoles> getRoles() {
 //        return roles;
 //    }
 //
-//    public void setRoles(List<UserRole> roles) {
+//    public void setRoles(List<UserRoles> roles) {
 //        this.roles = roles;
 //    }
 }

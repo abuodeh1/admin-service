@@ -1,4 +1,4 @@
-package service.admin.model.group;
+package service.admin.model.user;
 
 
 import org.hibernate.envers.Audited;
@@ -11,15 +11,15 @@ import java.util.List;
 
 @Audited
 @EntityListeners(AuditingEntityListener.class)
-@Entity(name="GROUPROLES")
-public class GroupRole {
+@Entity(name="USERROLES")
+public class UserRoles {
 
     @EmbeddedId
-    private GroupRoleIdentity groupRoleIdentity;
+    private UserRoleIdentity userRoleIdentity;
 
-    @ManyToOne(fetch = FetchType.LAZY, targetEntity = Group.class)
-    @JoinColumn(name = "groupId", insertable = false, updatable = false)
-    private List<Group> groups;
+    @ManyToOne(fetch = FetchType.LAZY, targetEntity = User.class)
+    @JoinColumn(name = "userId", insertable = false, updatable = false)
+    private List<User> users;
 
     @ManyToOne(fetch = FetchType.LAZY, targetEntity = Role.class)
     @JoinColumn(name = "roleId", insertable = false, updatable = false)
@@ -27,16 +27,9 @@ public class GroupRole {
 
     private long lastModified;
 
-    public GroupRole() {
+
+    public UserRoles() {
         setLastModified(new Date().getTime());
-    }
-
-    public GroupRoleIdentity getGroupRoleIdentity() {
-        return groupRoleIdentity;
-    }
-
-    public void setGroupRoleIdentity(GroupRoleIdentity groupRoleIdentity) {
-        this.groupRoleIdentity = groupRoleIdentity;
     }
 
     public long getLastModified() {
@@ -47,12 +40,20 @@ public class GroupRole {
         this.lastModified = lastModified;
     }
 
-    public List<Group> getGroups() {
-        return groups;
+    public UserRoleIdentity getUserRoleIdentity() {
+        return userRoleIdentity;
     }
 
-    public void setGroups(List<Group> groups) {
-        this.groups = groups;
+    public void setUserRoleIdentity(UserRoleIdentity userRoleIdentity) {
+        this.userRoleIdentity = userRoleIdentity;
+    }
+
+    public List<User> getUsers() {
+        return users;
+    }
+
+    public void setUsers(List<User> users) {
+        this.users = users;
     }
 
     public List<Role> getRoles() {

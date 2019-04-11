@@ -3,31 +3,31 @@ package service.admin.services;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import service.admin.controller.find.QuerySpecification;
-import service.admin.model.user.UserRole;
+import service.admin.model.user.UserRoles;
 import service.admin.repositories.UserRoleRepository;
 
 import java.util.List;
 import java.util.Optional;
 
 @Service
-public class UserRoleService implements EntityService<UserRole> {
+public class UserRoleService implements EntityService<UserRoles> {
 
     @Autowired
     private UserRoleRepository userRoleRepository;
 
-    public UserRole save(UserRole userRole) {
+    public UserRoles save(UserRoles userRole) {
 
         return userRoleRepository.save(userRole);
 
     }
 
-    public List<UserRole> find(QuerySpecification<UserRole> userSpecification) {
+    public List<UserRoles> find(QuerySpecification<UserRoles> userSpecification) {
 
         return userRoleRepository.findAll(userSpecification);
 
     }
 
-    public Optional<UserRole> get(String id) {
+    public Optional<UserRoles> get(String id) {
 
         return null;
 
@@ -35,7 +35,7 @@ public class UserRoleService implements EntityService<UserRole> {
 
     public boolean delete(String code) {
 
-        Optional<UserRole> role = get(code);
+        Optional<UserRoles> role = get(code);
 
         if (role.isPresent()) {
 
@@ -47,7 +47,7 @@ public class UserRoleService implements EntityService<UserRole> {
         return false;
     }
 
-    public List<UserRole> getAll() {
+    public List<UserRoles> getAll() {
 
         return userRoleRepository.findAll();
     }
