@@ -16,9 +16,4 @@ public class UserRoleService extends AbstractEntityService<UserRoles> {
         return userRoleRepository;
     }
 
-    @Override
-    public UserRoles beforeSave(UserRoles userRoles) {
-        return userRoles;
-    }
-
 }

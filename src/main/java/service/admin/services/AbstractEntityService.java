@@ -6,22 +6,25 @@ import service.admin.repositories.NaturalRepository;
 import java.util.List;
 import java.util.Optional;
 
-public abstract class AbstractEntityService<BaseDomain> {
+public abstract class AbstractEntityService<T> {
 
-    public Optional<BaseDomain> get(String code){
+    public Optional<T> get(String code){
         return getRepository().findBySimpleNaturalId(code);
     }
 
-    public BaseDomain save(BaseDomain baseDomain){
+    public T save(T entity){
 
-        baseDomain = beforeSave(baseDomain);
+        if(getRepository() instanceof EntityServicePhase) {
 
-        return (BaseDomain) getRepository().save(baseDomain);
+            entity = (T)((EntityServicePhase) getRepository()).beforeSave(entity);
+        }
+
+        return (T) getRepository().save(entity);
     }
 
     public boolean delete(String code){
 
-        Optional<BaseDomain> entity = getRepository().findBySimpleNaturalId(code);
+        Optional<T> entity = getRepository().findBySimpleNaturalId(code);
 
         if (entity.isPresent()) {
 
@@ -34,17 +37,17 @@ public abstract class AbstractEntityService<BaseDomain> {
 
     }
 
-    public List<BaseDomain> getAll(){
+    public List<T> getAll(){
 
         return getRepository().findAll();
     }
 
-    public List<BaseDomain> find(QuerySpecification<BaseDomain> querySpecification){
+    public List<T> find(QuerySpecification<T> querySpecification){
 
         return getRepository().findAll(querySpecification);
     }
 
     public abstract NaturalRepository getRepository();
 
-    public abstract BaseDomain beforeSave(BaseDomain baseDomain);
+//    public abstract T beforeSave(T baseDomain);
 }

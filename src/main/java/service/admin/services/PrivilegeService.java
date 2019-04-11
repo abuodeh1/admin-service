@@ -16,8 +16,4 @@ public class PrivilegeService extends AbstractEntityService<Privilege> {
         return privilegeRepository;
     }
 
-    @Override
-    public Privilege beforeSave(Privilege privilege) {
-        return privilege;
-    }
 }

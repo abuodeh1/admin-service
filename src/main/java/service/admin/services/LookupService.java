@@ -18,11 +18,6 @@ public class LookupService extends AbstractEntityService<Lookup> {
         return lookupRepository;
     }
 
-    @Override
-    public Lookup beforeSave(Lookup lookup) {
-        return lookup;
-    }
-
     public List<Lookup> getAllChildesLookup(String parent) {
 
         return lookupRepository.getAllChildesLookup(parent);
