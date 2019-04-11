@@ -7,5 +7,4 @@ import service.admin.model.user.UserRoles;
 @Repository
 public interface UserRoleRepository extends NaturalRepository<UserRoles, String> , JpaSpecificationExecutor<UserRoles> {
 
-
 }
