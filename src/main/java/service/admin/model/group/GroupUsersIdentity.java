@@ -12,7 +12,6 @@ public class GroupUsersIdentity implements Serializable {
     @Column(name = "userId")
     private int userId;
 
-
     public int getGroupId() {
         return groupId;
     }
@@ -28,4 +27,5 @@ public class GroupUsersIdentity implements Serializable {
     public void setUserId(int userId) {
         this.userId = userId;
     }
+
 }

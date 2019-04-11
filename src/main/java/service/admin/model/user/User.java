@@ -26,6 +26,10 @@ public class User extends DefaultEntity /*implements UserDetails*/ {
     @JoinColumn(name = "userId")
     private List<UserPrivileges> privileges;
 
+//    @OneToMany(fetch = FetchType.LAZY)
+//    @JoinColumn(name = "userId")
+//    private List<GroupUsers> groups;
+
     public User() {
     }
 
@@ -102,4 +106,11 @@ public class User extends DefaultEntity /*implements UserDetails*/ {
         this.privileges = privileges;
     }
 
+//    public List<GroupUsers> getGroupList() {
+//        return groups;
+//    }
+//
+//    public void setGroupList(List<GroupUsers> groups) {
+//        this.groups = groups;
+//    }
 }

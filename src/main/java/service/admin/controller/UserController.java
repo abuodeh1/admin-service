@@ -26,5 +26,6 @@ public class UserController extends EntityControllerCRUD<User, UserDTO>  {
     public UserDTO buildDTO() {
         return new UserDTO();
     }
+
 }
 

@@ -42,9 +42,9 @@ public class LookupService implements EntityService<Lookup> {
         return false;
     }
 
-    public List<Lookup> getAllChildsLookup(String parent) {
+    public List<Lookup> getLookupChilds(String parent) {
 
-        return lookupRepository.getAllChildsLookup(parent);
+        return lookupRepository.getLookupChilds(parent);
     }
 
     public List<Lookup> getAllParentLookup() {
@@ -79,5 +79,11 @@ public class LookupService implements EntityService<Lookup> {
     public Lookup getParentLookup(String code) {
         return lookupRepository.getParentLookup(code);
     }
+
+    public List<Lookup> getAllChildLookup() {
+        return lookupRepository.getAllChildLookup();
+    }
+
+
 
 }

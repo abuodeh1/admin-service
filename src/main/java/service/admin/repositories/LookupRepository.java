@@ -18,11 +18,16 @@ public interface LookupRepository extends JpaRepository<Lookup, String>, JpaSpec
     public  List<Lookup> getAllParentsLookup();
 
     @Query
-    public List<Lookup> getAllChildsLookup(String id);
+    public List<Lookup> getLookupChilds(String id);
 
     @Query
     public  Lookup getChildLookup(String id, String parent);
 
     @Query
     Lookup getParentLookup(String code);
+
+    @Query
+    List<Lookup> getAllChildLookup();
+
+
 }

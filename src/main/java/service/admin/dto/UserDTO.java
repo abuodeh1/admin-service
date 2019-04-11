@@ -12,6 +12,10 @@ public class UserDTO extends DefaultDTO {
     public UserDTO() {
     }
 
+    public UserDTO(String username) {
+        this.username = username;
+    }
+
     public String getUsername() {
         return code;
     }
