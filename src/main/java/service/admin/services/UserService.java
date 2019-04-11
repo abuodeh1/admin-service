@@ -38,8 +38,10 @@ public class UserService extends AbstractEntityService<User> implements EntitySe
     }
 
     @Override
-    public void beforeSave(User user) {
+    public User beforeSave(User user) {
 
         user.setPassword(passwordEncoder().encode(user.getPassword()));
+
+        return user;
     }
 }

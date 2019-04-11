@@ -16,5 +16,10 @@ public class GroupService extends AbstractEntityService<Group> {
         return groupRepository;
     }
 
+    @Override
+    public Group beforeSave(Group group) {
+        return group;
+    }
+
 }
 

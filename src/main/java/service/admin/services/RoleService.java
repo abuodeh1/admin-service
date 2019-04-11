@@ -15,4 +15,9 @@ public class RoleService extends AbstractEntityService<Role> {
     public RoleRepository getRepository() {
         return roleRepository;
     }
+
+    @Override
+    public Role beforeSave(Role role) {
+        return role;
+    }
 }

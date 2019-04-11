@@ -1,7 +1,9 @@
 package service.admin.services;
 
+import service.admin.model.user.User;
+
 public interface EntityServicePhase<BaseDomain> {
 
-    void beforeSave(BaseDomain entity);
+    User beforeSave(BaseDomain entity);
 
 }

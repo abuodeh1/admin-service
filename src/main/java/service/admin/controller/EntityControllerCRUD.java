@@ -98,7 +98,7 @@ public abstract class EntityControllerCRUD<T extends DefaultEntity, D extends De
 
         Optional<T> entity = baseService.get(dto.getCode());
 
-        if(entity.isPresent()){
+        if(entity.isPresent()) {
 
             T newEntity = buildEntity();
 
@@ -108,14 +108,14 @@ public abstract class EntityControllerCRUD<T extends DefaultEntity, D extends De
 
             T updatedUser = baseService.save(newEntity);
 
-            BeanUtils.copyProperties(newEntity, dto, "password");
+            BeanUtils.copyProperties(updatedUser, dto, "password");
 
             responseEntity = new ResponseEntity(dto, HttpStatus.OK);
-
-        }else{
-
-            responseEntity = new ResponseEntity(HttpStatus.NOT_MODIFIED);
         }
+//        }else{
+//
+//            responseEntity = new ResponseEntity(HttpStatus.NOT_MODIFIED);
+//        }
 
         return responseEntity;
 

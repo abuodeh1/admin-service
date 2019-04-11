@@ -14,7 +14,7 @@ public abstract class AbstractEntityService<BaseDomain> {
 
     public BaseDomain save(BaseDomain baseDomain){
 
-        beforeSave(baseDomain);
+        baseDomain = beforeSave(baseDomain);
 
         return (BaseDomain) getRepository().save(baseDomain);
     }
@@ -46,6 +46,5 @@ public abstract class AbstractEntityService<BaseDomain> {
 
     public abstract NaturalRepository getRepository();
 
-    private void beforeSave(BaseDomain baseDomain) {
-    }
+    public abstract BaseDomain beforeSave(BaseDomain baseDomain);
 }
