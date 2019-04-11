@@ -1,12 +1,16 @@
 package service.admin.model.user;
 
+import org.hibernate.envers.Audited;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import service.admin.model.DefaultEntity;
 
-import javax.persistence.*;
-import java.util.List;
+import javax.persistence.AttributeOverride;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.EntityListeners;
 
-//@Audited
-//@EntityListeners(AuditingEntityListener.class)
+@Audited
+@EntityListeners(AuditingEntityListener.class)
 //@NamedQueries({
 //        @NamedQuery(name = "User.getPriviledgeCodes", query = "select p from Privilege p")
 //})
@@ -18,13 +22,14 @@ public class User extends DefaultEntity /*implements UserDetails*/ {
     private String password;
     private String mobile;
 
-    @OneToMany(fetch = FetchType.LAZY)
-    @JoinColumn(name = "userId")
-    private List<UserRole> roles;
+//    @JoinTable(name = "userroles")
+//    @OneToMany(fetch = FetchType.LAZY)
+//    @JoinColumn(name = "userId")
+//    private List<UserRole> roles;
 
-    @OneToMany(fetch = FetchType.LAZY)
-    @JoinColumn(name = "userId")
-    private List<UserPrivileges> privileges;
+//    @OneToMany(fetch = FetchType.LAZY)
+//    @JoinColumn(name = "userId")
+//    private List<UserPrivileges> privileges;
 
     public User() {
     }
@@ -86,20 +91,20 @@ public class User extends DefaultEntity /*implements UserDetails*/ {
         this.enabled = enabled;
     }
 
-    public List<UserRole> getRoles() {
-        return roles;
-    }
+//    public List<UserRole> getRoles() {
+//        return roles;
+//    }
+//
+//    public void setRoles(List<UserRole> roles) {
+//        this.roles = roles;
+//    }
 
-    public void setRoles(List<UserRole> roles) {
-        this.roles = roles;
-    }
-
-    public List<UserPrivileges> getPrivileges() {
-        return privileges;
-    }
-
-    public void setPrivileges(List<UserPrivileges> privileges) {
-        this.privileges = privileges;
-    }
+//    public List<UserPrivileges> getPrivileges() {
+//        return privileges;
+//    }
+//
+//    public void setPrivileges(List<UserPrivileges> privileges) {
+//        this.privileges = privileges;
+//    }
 
 }

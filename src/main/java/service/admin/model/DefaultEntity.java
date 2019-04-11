@@ -1,7 +1,10 @@
 package service.admin.model;
 
+import org.hibernate.envers.Audited;
+
 import javax.persistence.*;
 
+@Audited
 @MappedSuperclass
 public abstract class DefaultEntity {
 

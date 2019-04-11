@@ -1,16 +1,28 @@
 package service.admin.model.user;
 
-import javax.persistence.EmbeddedId;
-import javax.persistence.Entity;
-import java.util.Date;
+import org.hibernate.envers.Audited;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+import service.admin.model.privilege.Privilege;
 
-//@Audited
-//@EntityListeners(AuditingEntityListener.class)
+import javax.persistence.*;
+import java.util.Date;
+import java.util.List;
+
+@Audited
+@EntityListeners(AuditingEntityListener.class)
 @Entity(name="USERPRIVILEGES")
 public class UserPrivileges {
 
     @EmbeddedId
     private UserPrivilegesIdentity userPrivilegesIdentity;
+
+    @ManyToOne(fetch = FetchType.LAZY, targetEntity = User.class)
+    @JoinColumn(name = "userId", insertable = false, updatable = false)
+    private List<User> users;
+
+    @ManyToOne(fetch = FetchType.LAZY, targetEntity = Privilege.class)
+    @JoinColumn(name = "privilegeId", insertable = false, updatable = false)
+    private List<Privilege> privileges;
 
     private long lastModified;
 
@@ -33,5 +45,21 @@ public class UserPrivileges {
 
     public void setLastModified(long lastModified) {
         this.lastModified = lastModified;
+    }
+
+    public List<User> getUsers() {
+        return users;
+    }
+
+    public void setUsers(List<User> users) {
+        this.users = users;
+    }
+
+    public List<Privilege> getPrivileges() {
+        return privileges;
+    }
+
+    public void setPrivileges(List<Privilege> privileges) {
+        this.privileges = privileges;
     }
 }

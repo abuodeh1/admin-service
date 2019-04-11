@@ -1,16 +1,28 @@
 package service.admin.model.role;
 
-import javax.persistence.EmbeddedId;
-import javax.persistence.Entity;
-import java.util.Date;
+import org.hibernate.envers.Audited;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+import service.admin.model.privilege.Privilege;
 
-//@Audited
-//@EntityListeners(AuditingEntityListener.class)
+import javax.persistence.*;
+import java.util.Date;
+import java.util.List;
+
+@Audited
+@EntityListeners(AuditingEntityListener.class)
 @Entity(name="ROLEPRIVILEGE")
 public class RolePrivilege {
 
     @EmbeddedId
     private RolePrivilegeIdentity rolePrivilegesIdentity;
+
+    @ManyToOne(fetch = FetchType.LAZY, targetEntity = Role.class)
+    @JoinColumn(name = "roleId", insertable = false, updatable = false)
+    private List<Role> roles;
+
+    @ManyToOne(fetch = FetchType.LAZY, targetEntity = Privilege.class)
+    @JoinColumn(name = "privilegeId", insertable = false, updatable = false)
+    private List<Privilege> privileges;
 
     private long lastModified;
 

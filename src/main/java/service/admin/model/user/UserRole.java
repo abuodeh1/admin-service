@@ -1,17 +1,29 @@
 package service.admin.model.user;
 
 
-import javax.persistence.EmbeddedId;
-import javax.persistence.Entity;
-import java.util.Date;
+import org.hibernate.envers.Audited;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+import service.admin.model.role.Role;
 
-//@Audited
-//@EntityListeners(AuditingEntityListener.class)
+import javax.persistence.*;
+import java.util.Date;
+import java.util.List;
+
+@Audited
+@EntityListeners(AuditingEntityListener.class)
 @Entity(name="USERROLES")
 public class UserRole {
 
     @EmbeddedId
     private UserRoleIdentity userRoleIdentity;
+
+    @ManyToOne(fetch = FetchType.LAZY, targetEntity = User.class)
+    @JoinColumn(name = "userId", insertable = false, updatable = false)
+    private List<User> users;
+
+    @ManyToOne(fetch = FetchType.LAZY, targetEntity = Role.class)
+    @JoinColumn(name = "roleId", insertable = false, updatable = false)
+    private List<Role> roles;
 
     private long lastModified;
 
@@ -36,5 +48,19 @@ public class UserRole {
         this.userRoleIdentity = userRoleIdentity;
     }
 
+    public List<User> getUsers() {
+        return users;
+    }
 
+    public void setUsers(List<User> users) {
+        this.users = users;
+    }
+
+    public List<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(List<Role> roles) {
+        this.roles = roles;
+    }
 }
