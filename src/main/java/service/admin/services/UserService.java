@@ -5,17 +5,15 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-import service.admin.controller.find.QuerySpecification;
 import service.admin.model.privilege.Privilege;
 import service.admin.model.user.User;
 import service.admin.repositories.UserPrivilegesRepository;
 import service.admin.repositories.UserRepository;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
-public class UserService implements EntityService<User> {
+public class UserService extends AbstractEntityService<User> implements EntityServicePhase<User> {
 
     @Autowired
     private UserRepository userRepository;
@@ -28,52 +26,20 @@ public class UserService implements EntityService<User> {
         return new BCryptPasswordEncoder();
     }
 
-    public User save(User user) {
-
-        user.setPassword(passwordEncoder().encode(user.getPassword()));
-
-        return userRepository.save(user);
-    }
-
-    @Override
-    public List<User> find(QuerySpecification<User> querySpecification) {
-
-        return userRepository.findAll(querySpecification);
-    }
-
-    @Override
-    public Optional<User> get(String username) {
-
-        return userRepository.findUserByCode(username);
-    }
-
-    public boolean delete(String username) {
-
-        Optional<User> user = get(username);
-
-        if (user.isPresent()) {
-
-            userRepository.delete(user.get());
-
-            return true;
-        }
-
-        return false;
-    }
-
-    public List<User> getAll() {
-
-        return userRepository.findAll();
-    }
-
-    public List<String> getPriviledgeCodes(String username) {
-
-
-        return userRepository.getPriviledgeCodes(username);
-    }
-
-    public List<Privilege> getUserPrivilegesByUserCode(String code){
+    public List<Privilege> getUserPrivilegesByUserCode(String code) {
 
         return userPrivilegesRepository.getUserPrivilegesByUserCode(code);
+    }
+
+    @Override
+    public UserRepository getRepository() {
+
+        return userRepository;
+    }
+
+    @Override
+    public void beforeSave(User user) {
+
+        user.setPassword(passwordEncoder().encode(user.getPassword()));
     }
 }

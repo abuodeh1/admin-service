@@ -38,7 +38,7 @@ public class LookupController extends EntityControllerCRUD<Lookup, LookupDTO> {
     @GetMapping(value = "/parent/{parent}/child")
     public ResponseEntity<List<Lookup>> getAllChildsLookup(@PathVariable String parent) {
 
-        return new ResponseEntity(lookupService.getAllChildsLookup(parent), HttpStatus.OK);
+        return new ResponseEntity(lookupService.getAllChildesLookup(parent), HttpStatus.OK);
     }
 
 //    @GetMapping(value = "/{lookupID}/{parent}")

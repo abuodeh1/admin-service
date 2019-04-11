@@ -11,7 +11,7 @@ import java.util.List;
 @NamedQueries({
         @NamedQuery(name = "Lookup.getAllParentsLookup", query = "select c from Lookup c where c.parent='0'"),
         @NamedQuery(name = "Lookup.getParentLookup", query = "select c from Lookup c where c.code=?1 and c.parent='0'"),
-        @NamedQuery(name = "Lookup.getAllChildsLookup", query = "select c  from Lookup c where c.parent=?1"),
+        @NamedQuery(name = "Lookup.getAllChildesLookup", query = "select c  from Lookup c where c.parent=?1"),
         @NamedQuery(name = "Lookup.getChildLookup", query = "select c.name  from Lookup c where c.code=?1 and c.parent=?2 ")
 })
 @Audited

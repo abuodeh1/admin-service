@@ -9,7 +9,7 @@ import service.admin.controller.find.QuerySpecification;
 import service.admin.controller.find.SearchCriteria;
 import service.admin.dto.DefaultDTO;
 import service.admin.model.DefaultEntity;
-import service.admin.services.EntityService;
+import service.admin.services.AbstractEntityService;
 import service.exception.ConflictException;
 
 import java.util.ArrayList;
@@ -19,7 +19,7 @@ import java.util.Optional;
 public abstract class EntityControllerCRUD<T extends DefaultEntity, D extends DefaultDTO> extends EntityControllerActivation<T, D > {
 
     @Autowired
-    EntityService<T> baseService;
+    AbstractEntityService<T> baseService;
 
     @PostMapping(value = {"", "/"})
     public ResponseEntity<T> add(@RequestBody D dto) {
