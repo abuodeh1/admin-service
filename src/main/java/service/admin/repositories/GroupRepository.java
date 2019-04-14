@@ -5,6 +5,6 @@ import org.springframework.stereotype.Repository;
 import service.admin.model.group.Group;
 
 @Repository
-public interface GroupRepository extends NaturalRepository<Group, String>, JpaSpecificationExecutor<Group> {
+public interface GroupRepository extends NaturalRepository<Group, Integer>, JpaSpecificationExecutor<Group> {
 
 }

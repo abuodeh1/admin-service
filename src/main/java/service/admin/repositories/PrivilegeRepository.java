@@ -5,6 +5,6 @@ import org.springframework.stereotype.Repository;
 import service.admin.model.privilege.Privilege;
 
 @Repository
-public interface PrivilegeRepository extends NaturalRepository<Privilege, String>, JpaSpecificationExecutor<Privilege> {
+public interface PrivilegeRepository extends NaturalRepository<Privilege, Integer>, JpaSpecificationExecutor<Privilege> {
 
 }

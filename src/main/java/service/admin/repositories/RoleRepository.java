@@ -5,6 +5,6 @@ import org.springframework.stereotype.Repository;
 import service.admin.model.role.Role;
 
 @Repository
-public interface RoleRepository extends NaturalRepository<Role, String> , JpaSpecificationExecutor<Role> {
+public interface RoleRepository extends NaturalRepository<Role, Integer> , JpaSpecificationExecutor<Role> {
 
 }
