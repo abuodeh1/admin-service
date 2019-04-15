@@ -15,3 +15,5 @@ public interface UserPrivilegesRepository extends NaturalRepository<UserPrivileg
     List<Privilege> getUserPrivilegesByUserCode(String code);
 
 }
+
+

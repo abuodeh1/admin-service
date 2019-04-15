@@ -28,4 +28,6 @@ public class RolePrivilegeIdentity implements Serializable {
     public void setPrivilegeId(int privilegeId) {
         this.privilegeId = privilegeId;
     }
+
+
 }

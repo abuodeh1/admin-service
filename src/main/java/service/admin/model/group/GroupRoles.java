@@ -11,6 +11,12 @@ import java.util.List;
 
 @Audited
 @EntityListeners(AuditingEntityListener.class)
+
+@NamedQueries({
+        @NamedQuery(name = "GroupRoles.getGroupRolesByGroupCode", query = "select c.roles from GroupRoles c where c.groupRoleIdentity.groupId = (select g.id from Groups g where g.code = ?1)")
+})
+
+
 @Entity(name="GroupRoles")
 public class GroupRoles {
 
@@ -62,4 +68,6 @@ public class GroupRoles {
     public void setRoles(List<Role> roles) {
         this.roles = roles;
     }
+
+
 }

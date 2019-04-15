@@ -10,6 +10,10 @@ import java.util.List;
 
 @Audited
 @EntityListeners(AuditingEntityListener.class)
+
+@NamedQueries({
+        @NamedQuery(name = "GroupUsers.getGroupUsersByGroupCode", query = "select c.users from GroupUsers c where c.groupUsersIdentity.groupId = (select g.id from Groups g where g.code = ?1)")
+})
 @Entity(name="GroupUsers")
 public class GroupUsers {
 

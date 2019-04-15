@@ -9,6 +9,10 @@ import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
 
+@NamedQueries({
+        @NamedQuery(name = "GroupPrivileges.getGroupPrivilegesByGroupCode", query = "select c.privileges from GroupPrivileges c where c.groupPrivilegesIdentity.groupId = (select u.id from Groups u where u.code= ?1)")
+})
+
 @Audited
 @EntityListeners(AuditingEntityListener.class)
 @Entity(name="GroupPrivileges")
@@ -62,4 +66,6 @@ public class GroupPrivileges {
     public void setPrivileges(List<Privilege> privileges) {
         this.privileges = privileges;
     }
+
+
 }
