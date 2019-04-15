@@ -8,7 +8,9 @@ public class LookupDTO extends DefaultDTO {
 
     private String code;
     private String name;
+    private String nameAr;
     private String description;
+    private String descriptionAr;
     private boolean enabled;
     private String parent;
     private boolean preferred;
@@ -30,6 +32,22 @@ public class LookupDTO extends DefaultDTO {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getNameAr() {
+        return nameAr;
+    }
+
+    public void setNameAr(String nameAr) {
+        this.nameAr = nameAr;
+    }
+
+    public String getDescriptionAr() {
+        return descriptionAr;
+    }
+
+    public void setDescriptionAr(String descriptionAr) {
+        this.descriptionAr = descriptionAr;
     }
 
     public String getDescription() {

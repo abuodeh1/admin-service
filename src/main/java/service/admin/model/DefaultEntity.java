@@ -18,6 +18,7 @@ public abstract class DefaultEntity {
     @Column(unique = true, nullable = false, updatable = false, length = 100)
     public String code;
     public String name;
+    public String nameAr;
     public boolean enabled;
 
     public int getId() {
@@ -42,6 +43,14 @@ public abstract class DefaultEntity {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getNameAr() {
+        return nameAr;
+    }
+
+    public void setNameAr(String nameAr) {
+        this.nameAr = nameAr;
     }
 
     public boolean isEnabled() {

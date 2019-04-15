@@ -24,21 +24,7 @@ public class User extends DefaultEntity /*implements UserDetails*/ {
     private String password;
     private String mobile;
 
-//    @JoinTable(name = "userroles")
-//    @OneToMany(fetch = FetchType.LAZY)
-//    @JoinColumn(name = "userId")
-//    private List<UserRoles> roles;
-
-//    @OneToMany(fetch = FetchType.LAZY)
-//    @JoinColumn(name = "userId")
-//    private List<UserPrivileges> privileges;
-
-//    @OneToMany(fetch = FetchType.LAZY)
-//    @JoinColumn(name = "userId")
-//    private List<GroupUsers> groups;
-
-    public User() {
-    }
+    public User() {}
 
     public void setPassword(String password) {
         this.password = password;
@@ -60,25 +46,12 @@ public class User extends DefaultEntity /*implements UserDetails*/ {
         return true;
     }
 
-    @Override
-    public boolean isEnabled() {
-        return enabled;
-    }
-
     public String getEmail() {
         return email;
     }
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public String getMobile() {
@@ -93,31 +66,4 @@ public class User extends DefaultEntity /*implements UserDetails*/ {
         return enabled;
     }
 
-    public void setEnabled(boolean enabled) {
-        this.enabled = enabled;
-    }
-
-//    public List<UserRoles> getRoles() {
-//        return roles;
-//    }
-//
-//    public void setRoles(List<UserRoles> roles) {
-//        this.roles = roles;
-//    }
-
-//    public List<UserPrivileges> getPrivileges() {
-//        return privileges;
-//    }
-//
-//    public void setPrivileges(List<UserPrivileges> privileges) {
-//        this.privileges = privileges;
-//    }
-
-//    public List<GroupUsers> getGroupList() {
-//        return groups;
-//    }
-//
-//    public void setGroupList(List<GroupUsers> groups) {
-//        this.groups = groups;
-//    }
 }

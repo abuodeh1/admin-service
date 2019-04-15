@@ -14,18 +14,9 @@ import javax.persistence.EntityListeners;
 public class Role extends DefaultEntity {
 
     private String description;
+    private String descriptionAr;
 
-//    @OneToMany(fetch = FetchType.LAZY)
-//    @JoinColumn(name = "roleId")
-//    private List<RolePrivileges> privileges;
-
-//    @JoinTable(name = "userroles")
-//    @OneToMany(fetch = FetchType.LAZY)
-//    @JoinColumn(name = "roleId")
-//    private List<UserRoles> roles;
-
-    public Role() {
-    }
+    public Role() {}
 
     public String getDescription() {
         return description;
@@ -35,19 +26,11 @@ public class Role extends DefaultEntity {
         this.description = description;
     }
 
-//    public List<RolePrivileges> getPrivileges() {
-//        return privileges;
-//    }
-//
-//    public void setPrivileges(List<RolePrivileges> privileges) {
-//        this.privileges = privileges;
-//    }
+    public String getDescriptionAr() {
+        return descriptionAr;
+    }
 
-//    public List<UserRoles> getRoles() {
-//        return roles;
-//    }
-//
-//    public void setRoles(List<UserRoles> roles) {
-//        this.roles = roles;
-//    }
+    public void setDescriptionAr(String descriptionAr) {
+        this.descriptionAr = descriptionAr;
+    }
 }

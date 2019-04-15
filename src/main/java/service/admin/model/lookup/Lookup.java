@@ -21,6 +21,7 @@ import java.util.List;
 public class Lookup extends DefaultEntity {
 
     private String description;
+    private String descriptionAr;
     private String parent;
     private boolean preferred;
     @Transient
@@ -35,6 +36,14 @@ public class Lookup extends DefaultEntity {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getDescriptionAr() {
+        return descriptionAr;
+    }
+
+    public void setDescriptionAr(String descriptionAr) {
+        this.descriptionAr = descriptionAr;
     }
 
     public String getParent() {

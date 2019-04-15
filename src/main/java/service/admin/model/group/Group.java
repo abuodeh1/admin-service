@@ -13,7 +13,7 @@ import javax.persistence.EntityListeners;
 public class Group extends DefaultEntity {
 
     private String description;
-
+    private String descriptionAr;
 
 
     public Group() {
@@ -48,5 +48,11 @@ public class Group extends DefaultEntity {
         this.description = description;
     }
 
+    public String getDescriptionAr() {
+        return descriptionAr;
+    }
 
+    public void setDescriptionAr(String descriptionAr) {
+        this.descriptionAr = descriptionAr;
+    }
 }

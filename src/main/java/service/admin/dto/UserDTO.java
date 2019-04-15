@@ -4,7 +4,7 @@ public class UserDTO extends DefaultDTO {
 
     private String username;
     private String email;
-    private String name;
+    private String name, nameAr;
     private String password;
     private String mobile;
     private boolean enabled;
@@ -38,6 +38,14 @@ public class UserDTO extends DefaultDTO {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getNameAr() {
+        return nameAr;
+    }
+
+    public void setNameAr(String nameAr) {
+        this.nameAr = nameAr;
     }
 
     public String getPassword() {

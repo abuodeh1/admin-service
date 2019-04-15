@@ -5,8 +5,8 @@ import java.util.List;
 public class RoleDTO extends DefaultDTO {
 
     private String code;
-    private String name;
-    private String description;
+    private String name, nameAr;
+    private String description, descriptionAr;
     private boolean enabled;
 
     private List<Integer> Privileges;
@@ -26,6 +26,22 @@ public class RoleDTO extends DefaultDTO {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getNameAr() {
+        return nameAr;
+    }
+
+    public void setNameAr(String nameAr) {
+        this.nameAr = nameAr;
+    }
+
+    public String getDescriptionAr() {
+        return descriptionAr;
+    }
+
+    public void setDescriptionAr(String descriptionAr) {
+        this.descriptionAr = descriptionAr;
     }
 
     public String getDescription() {
