@@ -12,6 +12,14 @@ public class UserPrivilegesIdentity implements Serializable {
     @Column(name = "privilegeId")
     private int privilegeId;
 
+    public UserPrivilegesIdentity() {
+    }
+
+    public UserPrivilegesIdentity(int userId, int privilegeId) {
+        this.userId = userId;
+        this.privilegeId = privilegeId;
+    }
+
     public int getUserId() {
         return userId;
     }
@@ -27,4 +35,5 @@ public class UserPrivilegesIdentity implements Serializable {
     public void setPrivilegeId(int privilegeId) {
         this.privilegeId = privilegeId;
     }
+
 }

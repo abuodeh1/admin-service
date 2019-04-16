@@ -1,12 +1,14 @@
 package service.admin.model.user;
 
 import org.hibernate.envers.Audited;
+import org.hibernate.envers.NotAudited;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import service.admin.model.privilege.Privilege;
 
 import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
+
 @NamedQueries({
 
         @NamedQuery(name = "UserPrivileges.getUserPrivilegesByUserCode", query = "select c.privileges from UserPrivileges c where c.userPrivilegesIdentity.userId = (select u.id from Users u where u.code = ?1)")
@@ -19,10 +21,12 @@ public class UserPrivileges {
     @EmbeddedId
     private UserPrivilegesIdentity userPrivilegesIdentity;
 
+    @NotAudited
     @ManyToOne(fetch = FetchType.LAZY, targetEntity = User.class)
     @JoinColumn(name = "userId", insertable = false, updatable = false)
     private List<User> users;
 
+    @NotAudited
     @ManyToOne(fetch = FetchType.LAZY, targetEntity = Privilege.class)
     @JoinColumn(name = "privilegeId", insertable = false, updatable = false)
     private List<Privilege> privileges;
@@ -33,6 +37,10 @@ public class UserPrivileges {
         setLastModified(new Date().getTime());
     }
 
+    public UserPrivileges(UserPrivilegesIdentity userPrivilegesIdentity) {
+        this.userPrivilegesIdentity = userPrivilegesIdentity;
+        setLastModified(new Date().getTime());
+    }
 
     public UserPrivilegesIdentity getUserPrivilegesIdentity() {
         return userPrivilegesIdentity;
