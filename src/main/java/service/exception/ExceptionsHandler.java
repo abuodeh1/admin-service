@@ -1,5 +1,6 @@
 package service.exception;
 
+import org.hibernate.JDBCException;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -27,6 +28,12 @@ public class ExceptionsHandler extends ResponseEntityExceptionHandler{
     public ResponseEntity<ErrorDetails> handleApiExceptions(BaseException ex, WebRequest request){
         ErrorDetails details = new ErrorDetails(ex.getMessage(), request.getDescription(false));
         return new ResponseEntity<>(details, ex.getStatusCode());
+    }
+
+    @ExceptionHandler({org.hibernate.exception.ConstraintViolationException.class, org.springframework.dao.DataIntegrityViolationException.class})
+    public ResponseEntity<ErrorDetails> handleSQLExceptions(JDBCException ex, WebRequest request){
+        ErrorDetails details = new ErrorDetails("Violates unique constraint", request.getDescription(false));
+        return new ResponseEntity<>(details, HttpStatus.BAD_REQUEST);
     }
 
     @Override
