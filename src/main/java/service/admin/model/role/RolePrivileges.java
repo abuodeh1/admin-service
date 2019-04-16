@@ -1,6 +1,7 @@
 package service.admin.model.role;
 
 import org.hibernate.envers.Audited;
+import org.hibernate.envers.NotAudited;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import service.admin.model.privilege.Privilege;
 
@@ -20,10 +21,11 @@ public class RolePrivileges {
     @EmbeddedId
     private RolePrivilegeIdentity rolePrivilegesIdentity;
 
+    @NotAudited
     @ManyToOne(fetch = FetchType.LAZY, targetEntity = Role.class)
     @JoinColumn(name = "roleId", insertable = false, updatable = false)
     private List<Role> roles;
-
+    @NotAudited
     @ManyToOne(fetch = FetchType.LAZY, targetEntity = Privilege.class)
     @JoinColumn(name = "privilegeId", insertable = false, updatable = false)
     private List<Privilege> privileges;
@@ -31,6 +33,11 @@ public class RolePrivileges {
     private long lastModified;
 
     public RolePrivileges() {
+        setLastModified(new Date().getTime());
+    }
+
+    public RolePrivileges(RolePrivilegeIdentity rolePrivilegesIdentity) {
+        this.rolePrivilegesIdentity = rolePrivilegesIdentity;
         setLastModified(new Date().getTime());
     }
 

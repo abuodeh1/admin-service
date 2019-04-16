@@ -13,6 +13,14 @@ public class RolePrivilegeIdentity implements Serializable {
     @Column(name = "privilegeId")
     private int privilegeId;
 
+    public RolePrivilegeIdentity() {
+    }
+
+    public RolePrivilegeIdentity(int roleId, int privilegeId) {
+        this.roleId = roleId;
+        this.privilegeId = privilegeId;
+    }
+
     public int getRoleId() {
         return roleId;
     }
