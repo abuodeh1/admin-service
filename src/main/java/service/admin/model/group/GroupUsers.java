@@ -1,6 +1,7 @@
 package service.admin.model.group;
 
 import org.hibernate.envers.Audited;
+import org.hibernate.envers.NotAudited;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import service.admin.model.user.User;
 
@@ -19,17 +20,22 @@ public class GroupUsers {
 
     @EmbeddedId
     private GroupUsersIdentity groupUsersIdentity;
-
+    @NotAudited
     @ManyToOne(fetch = FetchType.LAZY, targetEntity = Group.class)
     @JoinColumn(name = "groupId", insertable = false, updatable = false)
     private List<Group> groups;
-
+    @NotAudited
     @ManyToOne(fetch = FetchType.LAZY, targetEntity = User.class)
     @JoinColumn(name = "userId", insertable = false, updatable = false)
     private List<User> users;
 
 
     private long lastModified;
+
+    public GroupUsers(GroupUsersIdentity groupUsersIdentity) {
+        this.groupUsersIdentity = groupUsersIdentity;
+        setLastModified(new Date().getTime());
+    }
 
     public GroupUsers() {
         setLastModified(new Date().getTime());

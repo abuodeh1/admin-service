@@ -12,6 +12,15 @@ public class GroupUsersIdentity implements Serializable {
     @Column(name = "userId")
     private int userId;
 
+    public GroupUsersIdentity(int groupId, int userId) {
+
+        this.groupId = groupId;
+        this.userId = userId;
+    }
+
+    public GroupUsersIdentity() {
+    }
+
     public int getGroupId() {
         return groupId;
     }

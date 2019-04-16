@@ -2,6 +2,7 @@ package service.admin.model.group;
 
 
 import org.hibernate.envers.Audited;
+import org.hibernate.envers.NotAudited;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import service.admin.model.privilege.Privilege;
 
@@ -20,11 +21,11 @@ public class GroupPrivileges {
 
     @EmbeddedId
     private GroupPrivilegesIdentity groupPrivilegesIdentity;
-
+    @NotAudited
     @ManyToOne(fetch = FetchType.LAZY, targetEntity = Group.class)
     @JoinColumn(name = "groupId", insertable = false, updatable = false)
     private List<Group> groups;
-
+    @NotAudited
     @ManyToOne(fetch = FetchType.LAZY, targetEntity = Privilege.class)
     @JoinColumn(name = "privilegeId", insertable = false, updatable = false)
     private List<Privilege> privileges;
@@ -32,6 +33,11 @@ public class GroupPrivileges {
     private long lastModified;
 
     public GroupPrivileges() {
+        setLastModified(new Date().getTime());
+    }
+
+    public GroupPrivileges(GroupPrivilegesIdentity groupPrivilegesIdentity) {
+        this.groupPrivilegesIdentity = groupPrivilegesIdentity;
         setLastModified(new Date().getTime());
     }
 

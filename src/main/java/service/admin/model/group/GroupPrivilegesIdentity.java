@@ -12,6 +12,14 @@ public class GroupPrivilegesIdentity implements Serializable {
     @Column(name = "privilegeId")
     private int privilegeId;
 
+    public GroupPrivilegesIdentity() {
+    }
+
+    public GroupPrivilegesIdentity(int groupId, int privilegeId) {
+        this.groupId = groupId;
+        this.privilegeId = privilegeId;
+    }
+
     public int getGroupId() {
         return groupId;
     }

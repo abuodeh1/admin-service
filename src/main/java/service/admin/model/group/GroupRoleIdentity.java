@@ -12,6 +12,15 @@ public class GroupRoleIdentity implements Serializable {
     @Column(name = "roleId")
     private int roleId;
 
+    public GroupRoleIdentity(int groupId, int roleId) {
+
+        this.groupId = groupId;
+        this.roleId = roleId;
+    }
+
+    public GroupRoleIdentity() {
+    }
+
     public int getGroupId() {
         return groupId;
     }

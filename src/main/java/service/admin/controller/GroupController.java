@@ -9,15 +9,19 @@ import service.admin.dto.GroupDTO;
 import service.admin.dto.PrivilegeDTO;
 import service.admin.dto.RoleDTO;
 import service.admin.dto.UserDTO;
-import service.admin.model.group.Group;
+import service.admin.model.group.*;
 import service.admin.model.privilege.Privilege;
 import service.admin.model.role.Role;
 import service.admin.model.user.User;
+import service.admin.repositories.GroupPrivilegesRepository;
+import service.admin.repositories.GroupRoleRepository;
 import service.admin.repositories.GroupUsersRepository;
 import service.admin.services.GroupService;
+import service.exception.NotFoundException;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
@@ -29,6 +33,11 @@ public class GroupController extends EntityControllerCRUD<Group, GroupDTO> {
 
     @Autowired
     private GroupUsersRepository groupUsersRepository;
+    @Autowired
+    private GroupPrivilegesRepository groupPrivilegesRepository;
+    @Autowired
+    private GroupRoleRepository groupRolesRepository;
+
 
 //    @GetMapping("/{code}/user")
 //    public List<User> getGroupUsers(@PathVariable String code){
@@ -87,6 +96,75 @@ public class GroupController extends EntityControllerCRUD<Group, GroupDTO> {
 
         return new ResponseEntity(dtos, HttpStatus.OK);
     }
+
+
+    @PostMapping("/{code}/privileges")
+    @ResponseBody
+    public void addPrivilegesToGroup(@PathVariable String code, @RequestBody List<PrivilegeDTO> privilegeDTOs) {
+
+        Optional<Group> group = groupService.get(code);
+
+        if(group.isPresent()) {
+            List entities = new ArrayList();
+
+            privilegeDTOs.parallelStream().forEach(privilegeDTO ->
+                    entities.add(new GroupPrivileges(new GroupPrivilegesIdentity(group.get().getId(), privilegeDTO.getId())))
+            );
+
+            groupPrivilegesRepository.saveAll(entities);
+        }else{
+
+            throw new NotFoundException("The group not found");
+
+        }
+    }
+
+    @PostMapping("/{code}/roles")
+    @ResponseBody
+    public void addRolesToGroup(@PathVariable String code, @RequestBody List<RoleDTO> roleDTOS) {
+
+        Optional<Group> group = groupService.get(code);
+
+        if(group.isPresent()) {
+            List entities = new ArrayList();
+
+            roleDTOS.parallelStream().forEach(roleDTO ->
+                    entities.add(new GroupRoles(new GroupRoleIdentity(group.get().getId(), roleDTO.getId())))
+            );
+
+            groupRolesRepository.saveAll(entities);
+        }else{
+
+            throw new NotFoundException("The group not found");
+
+        }
+    }
+
+    @PostMapping("/{code}/users")
+    @ResponseBody
+    public void addUsersToGroup(@PathVariable String code, @RequestBody List<UserDTO> userDTOS) {
+
+        Optional<Group> group = groupService.get(code);
+
+        if(group.isPresent()) {
+            List entities = new ArrayList();
+
+            userDTOS.parallelStream().forEach(userDTO ->
+                    entities.add(new GroupUsers(new GroupUsersIdentity(group.get().getId(), userDTO.getId())))
+            );
+
+            groupUsersRepository.saveAll(entities);
+        }else{
+
+            throw new NotFoundException("The group not found");
+
+        }
+    }
+
+
+
+
+
 
     @Override
     public Group buildEntity() {
