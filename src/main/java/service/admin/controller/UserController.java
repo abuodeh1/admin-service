@@ -8,10 +8,9 @@ import service.admin.dto.RoleDTO;
 import service.admin.dto.UserDTO;
 import service.admin.model.privilege.Privilege;
 import service.admin.model.role.Role;
-import service.admin.model.user.User;
-import service.admin.model.user.UserPrivileges;
-import service.admin.model.user.UserPrivilegesIdentity;
+import service.admin.model.user.*;
 import service.admin.repositories.UserPrivilegesRepository;
+import service.admin.repositories.UserRoleRepository;
 import service.admin.services.UserRoleService;
 import service.admin.services.UserService;
 import service.exception.NotFoundException;
@@ -34,6 +33,8 @@ public class UserController extends EntityControllerCRUD<User, UserDTO> {
 
     @Autowired
     private UserPrivilegesRepository userPrivilegesRepository;
+    @Autowired
+   private UserRoleRepository userRolesRepository;
 
     @GetMapping("/{code}/privileges")
     @ResponseBody
@@ -100,10 +101,10 @@ public class UserController extends EntityControllerCRUD<User, UserDTO> {
             List entities = new ArrayList();
 
             roleDTOs.parallelStream().forEach(roleDTO ->
-                    entities.add(new UserPrivileges(new UserPrivilegesIdentity(user.get().getId(), roleDTO.getId())))
+                    entities.add(new UserRoles(new UserRoleIdentity(user.get().getId(), roleDTO.getId())))
             );
 
-            userPrivilegesRepository.saveAll(entities);
+            userRolesRepository.saveAll(entities);
         }else{
 
             throw new NotFoundException("The user not found");

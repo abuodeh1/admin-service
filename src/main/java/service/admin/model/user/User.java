@@ -4,11 +4,14 @@ import org.hibernate.envers.Audited;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import service.admin.model.DefaultEntity;
 
-import javax.persistence.AttributeOverride;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.EntityListeners;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+
+@NamedQueries({
+        @NamedQuery(name = "Users.addUserEx", query = "select c.roles from UserRoles c where c.userRoleIdentity.userId = (select u.id from Users u where u.code = ?1)")
+
+})
+
 
 @Audited
 @EntityListeners(AuditingEntityListener.class)

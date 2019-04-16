@@ -2,8 +2,6 @@ package service.admin.controller;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import service.admin.dto.PrivilegeDTO;
 import service.admin.dto.RoleDTO;
@@ -25,7 +23,8 @@ public class RoleController extends EntityControllerCRUD<Role, RoleDTO> {
 
 
     @GetMapping("/{code}/privileges")
-    public ResponseEntity<PrivilegeDTO> getUserPrivilegesByUserCode(@PathVariable String code){
+    @ResponseBody
+    public List<PrivilegeDTO> getUserPrivilegesByUserCode(@PathVariable String code){
 
         List<Privilege> privilegeList=  roleService.getRolePrivilegesByRoleCode(code);
 
@@ -37,7 +36,7 @@ public class RoleController extends EntityControllerCRUD<Role, RoleDTO> {
             dtos.add(dto);
         });
 
-        return new ResponseEntity(dtos, HttpStatus.OK);
+        return dtos;
     }
 
     @Override

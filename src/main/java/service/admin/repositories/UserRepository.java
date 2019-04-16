@@ -7,4 +7,8 @@ import service.admin.model.user.User;
 @Repository
 public interface UserRepository extends NaturalRepository<User, Integer>, JpaSpecificationExecutor<User> {
 
+
+
+
+
 }

@@ -14,4 +14,5 @@ public interface UserRoleRepository extends NaturalRepository<UserRoles, UserRol
 
     @Query
     List<Role> getUserRolesByUserCode(String code);
+
 }

@@ -2,6 +2,7 @@ package service.admin.model.user;
 
 
 import org.hibernate.envers.Audited;
+import org.hibernate.envers.NotAudited;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import service.admin.model.role.Role;
 
@@ -22,10 +23,12 @@ public class UserRoles {
     @EmbeddedId
     private UserRoleIdentity userRoleIdentity;
 
+    @NotAudited
     @ManyToOne(fetch = FetchType.LAZY, targetEntity = User.class)
     @JoinColumn(name = "userId", insertable = false, updatable = false)
     private List<User> users;
 
+    @NotAudited
     @ManyToOne(fetch = FetchType.LAZY, targetEntity = Role.class)
     @JoinColumn(name = "roleId", insertable = false, updatable = false)
     private List<Role> roles;
@@ -34,6 +37,11 @@ public class UserRoles {
 
 
     public UserRoles() {
+        setLastModified(new Date().getTime());
+    }
+
+    public UserRoles(UserRoleIdentity userRoleIdentity) {
+        this.userRoleIdentity = userRoleIdentity;
         setLastModified(new Date().getTime());
     }
 
