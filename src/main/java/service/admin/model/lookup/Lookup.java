@@ -1,9 +1,9 @@
 package service.admin.model.lookup;
 
 
+import org.hibernate.annotations.NaturalId;
 import org.hibernate.envers.Audited;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
-import service.admin.model.DefaultEntity;
 
 import javax.persistence.*;
 import java.util.List;
@@ -18,8 +18,14 @@ import java.util.List;
 @Audited
 @EntityListeners(value = AuditingEntityListener.class)
 @Entity(name="Lookup")
-public class Lookup extends DefaultEntity {
+public class Lookup {
 
+    @Id
+    @Column(unique = true, nullable = false, updatable = false, length = 100)
+    public String code;
+    public String name;
+    public String nameAr;
+    public boolean enabled;
     private String description;
     private String descriptionAr;
     private String parent;
@@ -28,6 +34,39 @@ public class Lookup extends DefaultEntity {
     private List<Lookup> childList;
 
     public Lookup() {
+    }
+
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getNameAr() {
+        return nameAr;
+    }
+
+    public void setNameAr(String nameAr) {
+        this.nameAr = nameAr;
+    }
+
+    public boolean isEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
     }
 
     public String getDescription() {
@@ -69,4 +108,5 @@ public class Lookup extends DefaultEntity {
     public void setChildList(List<Lookup> childList) {
         this.childList = childList;
     }
+
 }

@@ -8,7 +8,7 @@ import service.admin.model.lookup.Lookup;
 import java.util.List;
 
 @Repository
-public interface LookupRepository extends NaturalRepository<Lookup, Integer>, JpaSpecificationExecutor<Lookup> {
+public interface LookupRepository extends NaturalRepository<Lookup, String>, JpaSpecificationExecutor<Lookup> {
 
     @Query
     List<Lookup> getAllParentsLookup();
