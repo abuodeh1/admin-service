@@ -26,6 +26,8 @@ public class ApplicationConfig {
     public ResourceBundleMessageSource messageSource() {
 
         ResourceBundleMessageSource source = new ResourceBundleMessageSource();
+        source.setDefaultEncoding("UTF-8");
+        source.setCacheSeconds(3600);
         source.setBasenames("messages/message");
         source.setUseCodeAsDefaultMessage(true);
 
