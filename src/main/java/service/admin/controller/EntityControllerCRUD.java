@@ -10,7 +10,6 @@ import service.admin.controller.find.SearchCriteria;
 import service.admin.dto.DefaultDTO;
 import service.admin.model.DefaultEntity;
 import service.admin.services.AbstractEntityService;
-import service.exception.ConflictException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,12 +23,12 @@ public abstract class EntityControllerCRUD<T extends DefaultEntity, D extends De
     @PostMapping(value = {"", "/"})
     public ResponseEntity<T> add(@RequestBody D dto) {
 
-        Optional<T> entity = baseService.get(dto.getCode());
-
-        if(entity.isPresent()){
-
-            throw new ConflictException(String.format("The %s already defined.", dto.getCode()));
-        }
+//        Optional<T> entity = baseService.get(dto.getCode());
+//
+//        if(entity.isPresent()){
+//
+//            throw new ConflictException(String.format("The %s already defined.", dto.getCode()));
+//        }
 
         T newEntity = buildEntity();
 

@@ -1,6 +1,8 @@
 package service.exception;
 
 import org.hibernate.JDBCException;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.MessageSource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,6 +17,7 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 
 import javax.validation.ConstraintViolationException;
 import java.util.List;
+import java.util.Locale;
 
 /**
  * @author Khalid Elshafie <abolkog@gmail.com>
@@ -24,6 +27,10 @@ import java.util.List;
 @Validated
 public class ExceptionsHandler extends ResponseEntityExceptionHandler{
 
+    @Autowired
+    private MessageSource messageSource;
+
+
     @ExceptionHandler(BaseException.class)
     public ResponseEntity<ErrorDetails> handleApiExceptions(BaseException ex, WebRequest request){
         ErrorDetails details = new ErrorDetails(ex.getMessage(), request.getDescription(false));
@@ -31,8 +38,8 @@ public class ExceptionsHandler extends ResponseEntityExceptionHandler{
     }
 
     @ExceptionHandler({org.hibernate.exception.ConstraintViolationException.class, org.springframework.dao.DataIntegrityViolationException.class})
-    public ResponseEntity<ErrorDetails> handleSQLExceptions(JDBCException ex, WebRequest request){
-        ErrorDetails details = new ErrorDetails("Violates unique constraint", request.getDescription(false));
+    public ResponseEntity<ErrorDetails> handleSQLExceptions(JDBCException ex, WebRequest request, Locale locale){
+        ErrorDetails details = new ErrorDetails(messageSource.getMessage("UNIQUE_CONSTRAINT", new Object[]{}, locale), request.getDescription(false));
         return new ResponseEntity<>(details, HttpStatus.BAD_REQUEST);
     }
 
