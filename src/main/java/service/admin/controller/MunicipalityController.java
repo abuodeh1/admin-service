@@ -23,8 +23,6 @@ public class MunicipalityController extends EntityControllerCRUD<Municipality, M
     @Autowired
     private MunicipalityRepository municipalityRepository;
 
-
-
     @Override
     public Municipality buildEntity() {
         return new Municipality();

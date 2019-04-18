@@ -83,12 +83,9 @@ public class UserController extends EntityControllerCRUD<User, UserDTO> {
             privilegeDTOs.parallelStream().forEach(privilegeDTO ->
                     entities.add(new UserPrivileges(new UserPrivilegesIdentity(user.get().getId(), privilegeDTO.getId())))
             );
-
             userPrivilegesRepository.saveAll(entities);
         }else{
-
             throw new NotFoundException("The user not found");
-
         }
     }
 
@@ -104,16 +101,12 @@ public class UserController extends EntityControllerCRUD<User, UserDTO> {
             roleDTOs.parallelStream().forEach(roleDTO ->
                     entities.add(new UserRoles(new UserRoleIdentity(user.get().getId(), roleDTO.getId())))
             );
-
             userRolesRepository.saveAll(entities);
         }else{
-
             throw new NotFoundException("The user not found");
-
         }
     }
-
-
+    
     @Override
     public User buildEntity() {
         return new User();
@@ -123,7 +116,5 @@ public class UserController extends EntityControllerCRUD<User, UserDTO> {
     public UserDTO buildDTO() {
         return new UserDTO();
     }
-
-
 }
 
