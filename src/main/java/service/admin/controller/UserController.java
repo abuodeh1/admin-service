@@ -106,7 +106,7 @@ public class UserController extends EntityControllerCRUD<User, UserDTO> {
             throw new NotFoundException("The user not found");
         }
     }
-    
+
     @Override
     public User buildEntity() {
         return new User();

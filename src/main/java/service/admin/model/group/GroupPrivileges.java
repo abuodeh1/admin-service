@@ -11,7 +11,8 @@ import java.util.Date;
 import java.util.List;
 
 @NamedQueries({
-        @NamedQuery(name = "GroupPrivileges.getGroupPrivilegesByGroupCode", query = "select c.privileges from GroupPrivileges c where c.groupPrivilegesIdentity.groupId = (select u.id from Groups u where u.code= ?1)")
+  @NamedQuery(name = "GroupPrivileges.getGroupPrivilegesByGroupCode",
+   query = "select c.privileges from GroupPrivileges c where c.groupPrivilegesIdentity.groupId = (select u.id from Groups u where u.code= ?1)")
 })
 
 @Audited

@@ -10,7 +10,7 @@ import javax.persistence.EntityListeners;
 
 @Audited
 @EntityListeners(value = AuditingEntityListener.class)
-@Entity(name="Municipalitys")
+@Entity(name="municipality")
 public class Municipality extends DefaultEntity {
 
     private String description;

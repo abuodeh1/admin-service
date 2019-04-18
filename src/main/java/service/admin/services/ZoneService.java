@@ -2,35 +2,32 @@ package service.admin.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import service.admin.model.location.Zone;
+import service.admin.model.location.Areas;
+import service.admin.model.location.Zones;
 import service.admin.repositories.NaturalRepository;
+import service.admin.repositories.ZoneAreaRepository;
 import service.admin.repositories.ZoneRepository;
-@Service
-public class ZoneService  extends AbstractEntityService<Zone> implements EntityServicePhase<Zone>{
 
+import java.util.List;
+
+@Service
+public class ZoneService  extends AbstractEntityService<Zones>{
 
     @Autowired
     private ZoneRepository zoneRepository;
-
-
+    @Autowired
+    private ZoneAreaRepository zoneAreaRepository;
 
     @Override
     public NaturalRepository getRepository() {
         return zoneRepository;
     }
 
+    public List<Areas> getZoneAreaByZoneCode(String code) {
 
-    @Override
-    public Zone beforeSave(Zone zone) {
-        return zone;
+        return zoneAreaRepository.getZoneAreaByZoneCode(code);
     }
 
-
-    public ZoneRepository getZoneRepository() {
-        return zoneRepository;
-    }
-
-    public void setZoneRepository(ZoneRepository zoneRepository) {
-        this.zoneRepository = zoneRepository;
+    public ZoneService() {
     }
 }

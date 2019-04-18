@@ -12,16 +12,6 @@ public class MunicipalityService  extends AbstractEntityService<Municipality>  {
     @Autowired
     private MunicipalityRepository municipalityRepository;
 
-    public MunicipalityRepository getMunicipalityRepository() {
-        return municipalityRepository;
-    }
-
-
-
-    public void setMunicipalityRepository(MunicipalityRepository municipalityRepository) {
-        this.municipalityRepository = municipalityRepository;
-    }
-
     @Override
     public NaturalRepository getRepository() {
         return municipalityRepository;

@@ -9,13 +9,13 @@ import javax.persistence.EntityListeners;
 
 @Audited
 @EntityListeners(value = AuditingEntityListener.class)
-@Entity(name="Zones")
-public class Zone extends DefaultEntity {
+@Entity(name="governorates")
+public class Governorates extends DefaultEntity {
 
     private String description;
     private String descriptionAr;
 
-    public Zone() {
+    public Governorates() {
     }
 
     public String getDescription() {
@@ -33,7 +33,5 @@ public class Zone extends DefaultEntity {
     public void setDescriptionAr(String descriptionAr) {
         this.descriptionAr = descriptionAr;
     }
-
-
 
 }

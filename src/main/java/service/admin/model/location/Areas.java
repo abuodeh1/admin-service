@@ -9,13 +9,13 @@ import javax.persistence.EntityListeners;
 
 @Audited
 @EntityListeners(value = AuditingEntityListener.class)
-@Entity(name="Areas")
-public class Area extends DefaultEntity {
+@Entity(name="areas")
+public class Areas extends DefaultEntity {
 
     private String description;
     private String descriptionAr;
 
-    public Area() {
+    public Areas() {
     }
 
     public String getDescription() {

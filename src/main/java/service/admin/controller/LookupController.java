@@ -144,7 +144,7 @@ public class LookupController {
 
         return new ResponseEntity(lookupService.getLookupChilds(parent), HttpStatus.OK);
     }
-//
+
 //    @GetMapping(value = "/{lookupID}/{parent}")
 //    public List<Lookup> getChildLookup(@PathVariable String lookupID,@PathVariable String parent) {
 //        return lookupService.getChildLookup(lookupID,parent);
@@ -155,66 +155,66 @@ public class LookupController {
 //       lookupService.attachChildLookup(parentID,lookupID);
 //    }
 
-//    @PostMapping( value = "/findParent")
-//    public ResponseEntity<List<Lookup>> findParent(@RequestBody List<SearchCriteria> criteriaList) {
-//    //to do
-//        QuerySpecification<Lookup> querySpecification = new QuerySpecification(criteriaList);
-//        List<Lookup> parentLookup = new ArrayList<>();
-//        List<Lookup> entitie = baseService.find(querySpecification);
-//        for ( int i=0 ;i<entitie.size();i++){
-//            if(entitie.get(i).getParent().equalsIgnoreCase("0")){
-//
-//                parentLookup.add(entitie.get(0));
-//            }
-//        }
-//        List<LookupDTO> dtos = new ArrayList<>();
-//
-//        parentLookup.stream().forEach( entity -> {
-//            LookupDTO dto = buildDTO();
-//            BeanUtils.copyProperties(entity, dto);
-//            dtos.add(dto);
-//        });
-//
-//        return new ResponseEntity(dtos, HttpStatus.OK);
-//    }
-//
-//    @PostMapping( value = "/findChild")
-//    public ResponseEntity<List<Lookup>> findChild(@RequestBody List<SearchCriteria> criteriaList) {
-//    //to do
-//        QuerySpecification<Lookup> querySpecification = new QuerySpecification(criteriaList);
-//        List<Lookup> childLookup = new ArrayList<>();
-//        List<Lookup> entitie = baseService.find(querySpecification);
-//        for ( int i=0 ;i<entitie.size();i++){
-//            if(!entitie.get(i).getParent().equalsIgnoreCase("0")){
-//
-//                childLookup.add(entitie.get(0));
-//            }
-//        }
-//        List<LookupDTO> dtos = new ArrayList<>();
-//
-//        childLookup.stream().forEach( entity -> {
-//            LookupDTO dto = buildDTO();
-//            BeanUtils.copyProperties(entity, dto);
-//            dtos.add(dto);
-//        });
-//
-//        return new ResponseEntity(dtos, HttpStatus.OK);
-//    }
+    @PostMapping( value = "/findParent")
+    public ResponseEntity<List<Lookup>> findParent(@RequestBody List<SearchCriteria> criteriaList) {
+    //to do
+        QuerySpecification<Lookup> querySpecification = new QuerySpecification(criteriaList);
+        List<Lookup> parentLookup = new ArrayList<>();
+        List<Lookup> entitie = lookupService.find(querySpecification);
+        for ( int i=0 ;i<entitie.size();i++){
+            if(entitie.get(i).getParent().equalsIgnoreCase("0")){
 
-//    @GetMapping( value = "/allchild")
-//    public ResponseEntity<List<Lookup>> gelAllChild() {
-//        List<Lookup> entitie = lookupService.getAllChildLookup();
-//
-//        List<LookupDTO> dtos = new ArrayList<>();
-//
-//        entitie.stream().forEach( entity -> {
-//            LookupDTO dto = buildDTO();
-//            BeanUtils.copyProperties(entity, dto);
-//            dtos.add(dto);
-//        });
-//
-//        return new ResponseEntity(dtos, HttpStatus.OK);
-//    }
+                parentLookup.add(entitie.get(0));
+            }
+        }
+        List<LookupDTO> dtos = new ArrayList<>();
+
+        parentLookup.stream().forEach( entity -> {
+            LookupDTO dto = buildDTO();
+            BeanUtils.copyProperties(entity, dto);
+            dtos.add(dto);
+        });
+
+        return new ResponseEntity(dtos, HttpStatus.OK);
+    }
+
+    @PostMapping( value = "/findChild")
+    public ResponseEntity<List<Lookup>> findChild(@RequestBody List<SearchCriteria> criteriaList) {
+    //to do
+        QuerySpecification<Lookup> querySpecification = new QuerySpecification(criteriaList);
+        List<Lookup> childLookup = new ArrayList<>();
+        List<Lookup> entitie = lookupService.find(querySpecification);
+        for ( int i=0 ;i<entitie.size();i++){
+            if(!entitie.get(i).getParent().equalsIgnoreCase("0")){
+
+                childLookup.add(entitie.get(0));
+            }
+        }
+        List<LookupDTO> dtos = new ArrayList<>();
+
+        childLookup.stream().forEach( entity -> {
+            LookupDTO dto = buildDTO();
+            BeanUtils.copyProperties(entity, dto);
+            dtos.add(dto);
+        });
+
+        return new ResponseEntity(dtos, HttpStatus.OK);
+    }
+
+    @GetMapping( value = "/allchild")
+    public ResponseEntity<List<Lookup>> gelAllChild() {
+        List<Lookup> entitie = lookupService.getAllChildLookup();
+
+        List<LookupDTO> dtos = new ArrayList<>();
+
+        entitie.stream().forEach( entity -> {
+            LookupDTO dto = buildDTO();
+            BeanUtils.copyProperties(entity, dto);
+            dtos.add(dto);
+        });
+
+        return new ResponseEntity(dtos, HttpStatus.OK);
+    }
 
 
     public Lookup buildEntity() {
