@@ -36,6 +36,7 @@ public class UserController extends EntityControllerCRUD<User, UserDTO> {
     @Autowired
    private UserRoleRepository userRolesRepository;
 
+
     @GetMapping("/{code}/privileges")
     @ResponseBody
     public  List<PrivilegeDTO> getUserPrivilegesByUserCode(@PathVariable String code) {

@@ -15,6 +15,9 @@ public class Area extends DefaultEntity {
     private String description;
     private String descriptionAr;
 
+    public Area() {
+    }
+
     public String getDescription() {
         return description;
     }

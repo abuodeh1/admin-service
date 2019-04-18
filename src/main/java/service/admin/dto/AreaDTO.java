@@ -1,22 +1,9 @@
-package service.admin.model.location;
+package service.admin.dto;
 
-import org.hibernate.envers.Audited;
-import org.springframework.data.jpa.domain.support.AuditingEntityListener;
-import service.admin.model.DefaultEntity;
-
-import javax.persistence.Entity;
-import javax.persistence.EntityListeners;
-
-@Audited
-@EntityListeners(value = AuditingEntityListener.class)
-@Entity(name="Zones")
-public class Zone extends DefaultEntity {
+public class AreaDTO  extends DefaultDTO  {
 
     private String description;
     private String descriptionAr;
-
-    public Zone() {
-    }
 
     public String getDescription() {
         return description;
@@ -34,6 +21,8 @@ public class Zone extends DefaultEntity {
         this.descriptionAr = descriptionAr;
     }
 
-
-
+    @Override
+    public String getCode() {
+        return code;
+    }
 }

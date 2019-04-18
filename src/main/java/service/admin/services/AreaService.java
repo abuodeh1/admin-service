@@ -6,7 +6,7 @@ import service.admin.model.location.Area;
 import service.admin.repositories.AreaRepository;
 
 @Service
-public class AreaService extends AbstractEntityService<Area> {
+public class AreaService extends AbstractEntityService<Area> implements EntityServicePhase<Area>{
 
     @Autowired
     private AreaRepository areaRepository;
@@ -16,4 +16,8 @@ public class AreaService extends AbstractEntityService<Area> {
         return areaRepository;
     }
 
+    @Override
+    public Area beforeSave(Area area) {
+        return area;
+    }
 }

@@ -7,4 +7,6 @@ import service.admin.model.location.Governorate;
 @Repository
 public interface GovernorateRepository extends NaturalRepository<Governorate, Integer>, JpaSpecificationExecutor<Governorate> {
 
+
+
 }
